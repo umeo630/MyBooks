@@ -1971,6 +1971,10 @@ ul li {
 .login-wrap {
 	padding: 20px;
 }
+.password_foget{
+    margin-top: 10px;
+    text-align: center;
+}
 .login-wrap .registration {
 	text-align: center;
 }

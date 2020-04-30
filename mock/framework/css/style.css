@@ -1971,7 +1971,7 @@ ul li {
 .login-wrap {
 	padding: 20px;
 }
-.password_foget{
+.password_forget{
     margin-top: 10px;
     text-align: center;
 }
@@ -1983,6 +1983,48 @@ ul li {
 	margin-top: 20px;
 	margin-bottom: 15px;
 }
+
+/*会員登録ページ*/
+.header-register{
+    height: 40px;
+}
+
+.form-register {
+	max-width: 350px;
+	margin: 100px auto 0;
+	background: #fff;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.form-register h2.form-register-heading {
+	margin: 0;
+	padding: 25px 20px;
+	text-align: center;
+	background: #fff;
+	border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	color: #393939;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+.register-wrap {
+	padding: 20px;
+}
+.password_forget{
+    margin-top: 10px;
+    text-align: center;
+}
+.register-wrap .registration {
+	text-align: center;
+}
+.register-social-link {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
 
 
 /*LOCK SCREEN CONF*/

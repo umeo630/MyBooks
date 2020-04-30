@@ -15,3 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 // 記事一覧画面
 Route::get('/', 'ArticleController@articleList');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

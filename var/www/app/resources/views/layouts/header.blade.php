@@ -1,0 +1,44 @@
+<header class="header black-bg">
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right"></div>
+    </div>
+    <a href="index.html" class="logo"><b>My<span>Books</span></b></a>
+    <div class="nav notify-row" id="top_menu">
+        <ul class="nav top-menu">
+            <li id="header_inbox_bar" class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                    <i class="fa fa-tasks"></i>
+                    <span class="badge bg-theme">2</span>
+                </a>
+                <ul class="dropdown-menu extended notification">
+                    <div class="notify-arrow notify-arrow-yellow"></div>
+                    <li>
+                        <p class="green">2件の新しいお知らせがあります</p>
+                    </li>
+                    <li>
+                        <a href="index.html#">
+                            <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                            あなたの記事がいいねされました
+                            <span class="small italic">4 分前</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#">
+                            <span class="label label-warning"><i class="fa fa-bell"></i></span>
+                            あなたの記事がポリシー違反により、運営から削除されました。
+                            <span class="small italic">30 分前</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#">全てのお知らせを確認する</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+            <li><a class="logout" href="login.html">Logout</a></li>
+        </ul>
+    </div>
+</header>

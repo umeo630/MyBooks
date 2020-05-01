@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // 記事一覧画面
 Route::get('/', 'ArticleController@articleList');
-
-
+Route::get('/user','UserController@userPage');
 
 Auth::routes();
 

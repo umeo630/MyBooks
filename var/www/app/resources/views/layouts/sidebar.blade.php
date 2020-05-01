@@ -4,7 +4,7 @@
             <p class="centered"><a href="profile.html"></a></p>
             <h5 class="centered">ログインユーザー名</h5>
             <li class="mt">
-                <a href="index.html">
+                <a href="/">
                     <i class="fa fa-dashboard"></i>
                     <span>マイページ</span>
                 </a>

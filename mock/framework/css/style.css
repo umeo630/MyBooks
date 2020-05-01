@@ -2,8 +2,7 @@
 * Template Name: Dashio
 * Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
 * Author: TemplateMag.com
-* License: https://templatemag.com/license/
-*/
+* License: https://templatemag.com/license
 
 
 /*
@@ -2121,10 +2120,10 @@ ul li {
     margin: 0;
     padding: 25px 20px;
     text-align: center;
-    background: #4ecdc4;
+    background: #fff;
     border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
-    color: #fff;
+    color: #393939;
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 300;
@@ -2969,7 +2968,7 @@ ul.inbox-pagination li {
     -o-transition: all .3s ease;
     transition: all .3s ease;
     /*background: #01a6b2;*/
-    
+
     font-weight: 300;
     color: #fff;
 }
@@ -3276,11 +3275,11 @@ ul.chat-available-user li a:hover {
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     /* Safari and Chrome */
-    
+
     .panel-footer.revenue-foot {
         margin-bottom: -4px;
     }
-    
+
     ;
 }
 .panel-footer.revenue-foot ul {
@@ -3513,7 +3512,7 @@ ul.chat-available-user li a:hover {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
-    
+
     100% {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
@@ -3524,7 +3523,7 @@ ul.chat-available-user li a:hover {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
-    
+
     100% {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
@@ -3561,4 +3560,220 @@ ul.chat-available-user li a:hover {
 }
 #copyrights a {
     color: #fff;
+}20px 0;
+    padding: 0;
+    width: 100%;
+}
+#sortable li {
+    padding-left: 3em;
+    font-size: 12px;
+}
+#sortable li i {
+    position: absolute;
+    left:6px;
+    padding:4px 10px 0 10px;
+    cursor: pointer;
+}
+
+#sortable li input[type=checkbox]{
+    margin-top: 0;
+}
+
+.ui-sortable > li {
+    padding: 15px 0 15px 35px !important ;
+    position: relative;
+    background: #f5f6f8;
+    margin-bottom: 2px;
+    border-bottom   : none !important;
+}
+
+.ui-sortable li.list-primary {
+    border-left: 3px solid #41CAC0;
+}
+
+.ui-sortable li.list-success {
+    border-left: 3px solid #78CD51;
+}
+
+.ui-sortable li.list-danger {
+    border-left: 3px solid #FF6C60;
+}
+
+.ui-sortable li.list-warning {
+    border-left: 3px solid #F1C500;
+}
+
+.ui-sortable li.list-info {
+    border-left: 3px solid #58C9F3;
+}
+
+.ui-sortable li.list-inverse {
+    border-left: 3px solid #BEC3C7;
+}
+
+/*footer*/
+.site-footer {
+    background: #4ECDC4;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.site-footer p {
+  margin-bottom: 5px;
+}
+
+.credits, .credits a {
+  color: #fff;
+}
+
+.go-top {
+    margin-right: 1%;
+    margin-top: -25px;
+    float: right;
+    background: rgba(255,255,255,.5);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.go-top i {
+    color: #2A3542;
+}
+
+.site-min-height {
+    min-height: 900px;
+}
+
+
+
+
+
+/* Contact Form */
+
+#contact {
+  padding: 40px 0;
+}
+
+.contact-form {
+
+}
+
+.contact-form label {
+   color: #999;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: 10px 12px;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  height: auto;
+}
+
+.contact-form .form-send {
+  text-align: center;
+}
+
+.contact-form .form-send button  {
+  background: #4ECDC4;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.contact-form .form-send button:hover {
+  background: #2cb5ab;
+}
+
+.contact-form .validate {
+  display: none;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.contact-form .loading {
+  display: none;
+  color: #555;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.contact-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+@-webkit-keyframes animate-loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.contact-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+.contact-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+/* Copyrights */
+
+#copyrights {
+  background: #222222;
+  padding: 20px 0;
+  text-align: center;
+}
+
+#copyrights p {
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+#copyrights a {
+  color: #fff;
 }

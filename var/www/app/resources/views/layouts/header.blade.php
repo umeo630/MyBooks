@@ -11,7 +11,7 @@
                     <span class="badge bg-theme">2</span>
                 </a>
                 <ul class="dropdown-menu extended notification">
-                    <div class="notify-arrow notify-arrow-yellow"></div>
+                    <div class="notify-arrow notify-arrow-green"></div>
                     <li>
                         <p class="green">2件の新しいお知らせがあります</p>
                     </li>
@@ -38,7 +38,12 @@
     </div>
     <div class="top-menu">
         <ul class="nav pull-right top-menu">
-            <li><a class="logout" href="login.html">Logout</a></li>
+            @auth
+                <li><a class="logout" href="{{ url('/logout') }}">ログアウト</a></li>
+            @else
+                <li><a href="{{ route('login') }}" class="logout">ログイン</a></li>
+                <li><a href="{{ route('register') }}" class="logout">ユーザー登録</a></li>
+            @endauth
         </ul>
     </div>
 </header>

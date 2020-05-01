@@ -26,5 +26,3 @@ ENV COMPOSER_HOME /composer
 
 # phpの設定
 ENV PATH $PATH:/composer/vendor/bin
-
-

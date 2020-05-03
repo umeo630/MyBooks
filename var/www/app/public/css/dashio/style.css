@@ -3757,20 +3757,20 @@ ul.chat-available-user li a:hover {
 }
 
 
-/* Contact Form */
+/* マイ記事登録 */
 
-#contact {
+#article-register {
     padding: 40px 0;
 }
 
-.contact-form {}
+.article-register-form {}
 
-.contact-form label {
+.article-register-form label {
     color: #999;
 }
 
-.contact-form input,
-.contact-form textarea {
+.article-register-form input,
+.article-register-form textarea {
     padding: 10px 12px;
     border-radius: 0;
     box-shadow: none;
@@ -3778,11 +3778,11 @@ ul.chat-available-user li a:hover {
     height: auto;
 }
 
-.contact-form .form-send {
+.article-register-form .form-send {
     text-align: center;
 }
 
-.contact-form .form-send button {
+.article-register-form .form-send button {
     background: #4ECDC4;
     border: 0;
     padding: 10px 30px;
@@ -3791,11 +3791,11 @@ ul.chat-available-user li a:hover {
     cursor: pointer;
 }
 
-.contact-form .form-send button:hover {
+.article-register-form .form-send button:hover {
     background: #2cb5ab;
 }
 
-.contact-form .validate {
+.article-register-form .validate {
     display: none;
     color: red;
     margin: 0 0 15px 0;
@@ -3803,7 +3803,7 @@ ul.chat-available-user li a:hover {
     font-size: 13px;
 }
 
-.contact-form .loading {
+.article-register-form .loading {
     display: none;
     color: #555;
     background: #fff;
@@ -3812,7 +3812,7 @@ ul.chat-available-user li a:hover {
     margin: 15px 0;
 }
 
-.contact-form .loading:before {
+.article-register-form .loading:before {
     content: "";
     display: inline-block;
     border-radius: 50%;
@@ -3822,6 +3822,11 @@ ul.chat-available-user li a:hover {
     border-top-color: #eee;
     -webkit-animation: animate-loading 1s linear infinite;
     animation: animate-loading 1s linear infinite;
+}
+
+.my-article-list{
+    margin-top: auto;
+
 }
 
 @-webkit-keyframes animate-loading {
@@ -3846,7 +3851,7 @@ ul.chat-available-user li a:hover {
     }
 }
 
-.contact-form .error-message {
+.article-register-form .error-message {
     display: none;
     color: #fff;
     background: #ed3c0d;
@@ -3856,7 +3861,7 @@ ul.chat-available-user li a:hover {
     margin: 15px 0;
 }
 
-.contact-form .sent-message {
+.article-register-form .sent-message {
     display: none;
     color: #fff;
     background: #18d26e;

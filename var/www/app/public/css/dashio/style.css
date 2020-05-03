@@ -2,13 +2,13 @@
 * Template Name: Dashio
 * Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
 * Author: TemplateMag.com
-* License: https://templatemag.com/license/
-*/
+* License: https://templatemag.com/license
 
 
 /*
 Template Name: DASHIO - Bootstrap 3.1.1 Admin Theme
-Template Version: 1.0
+Template
+ersion: 1.0
 Author: Carlos Alvarez
 Website: http://Alvarez.is/
 */
@@ -158,6 +158,7 @@ a:focus {
     color: #fff;
     background-color: #ed5565;
     border-color: #da4453;
+    float: right;
 }
 
 .btn-theme04:hover,
@@ -275,6 +276,7 @@ ul.top-menu>li>.logout {
     height: 17px;
     width: 17px;
     display: inline-block;
+    background: url("../img/nav-expand.png") no-repeat top;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -284,6 +286,7 @@ ul.top-menu>li>.logout {
 }
 
 .active .dcjq-icon {
+    background: url("../img/nav-expand.png") no-repeat bottom;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -524,8 +527,10 @@ ul.top-menu>li>a:focus {
 }
 
 .dropdown-menu.extended {
-    width: 700px !important;
+    max-width: 300px !important;
+    min-width: 160px !important;
     top: 42px;
+    width: 235px !important;
     padding: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.176) !important;
     border: none !important;
@@ -1795,6 +1800,9 @@ PANELS CONFIGURATIONS
     margin-right: 8px;
 }
 
+
+/* Grid Showcase*/
+
 .show-grid [class^=col-] {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -1903,6 +1911,10 @@ PANELS CONFIGURATIONS
 
 
 /* FORMS CONFIGURATION */
+
+.article-list {
+    float: left;
+}
 
 .form-panel {
     background: #ffffff;
@@ -2181,7 +2193,7 @@ ul li {
     padding: 20px;
 }
 
-.password_forget{
+.password_forget {
     margin-top: 10px;
     text-align: center;
 }
@@ -2196,45 +2208,51 @@ ul li {
     margin-bottom: 15px;
 }
 
+
 /*会員登録ページ*/
-.header-register{
+
+.header-register {
     height: 40px;
 }
 
 .form-register {
-	max-width: 350px;
-	margin: 100px auto 0;
-	background: #fff;
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
+    max-width: 350px;
+    margin: 100px auto 0;
+    background: #fff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 .form-register h2.form-register-heading {
-	margin: 0;
-	padding: 25px 20px;
-	text-align: center;
-	background: #fff;
-	border-radius: 5px 5px 0 0;
-	-webkit-border-radius: 5px 5px 0 0;
-	color: #393939;
-	font-size: 20px;
-	text-transform: uppercase;
-	font-weight: 300;
+    margin: 0;
+    padding: 25px 20px;
+    text-align: center;
+    background: #fff;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    color: #393939;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 300;
 }
+
 .register-wrap {
-	padding: 20px;
+    padding: 20px;
 }
-.password_forget{
+
+.password_forget {
     margin-top: 10px;
     text-align: center;
 }
+
 .register-wrap .registration {
-	text-align: center;
+    text-align: center;
 }
+
 .register-social-link {
-	display: block;
-	margin-top: 20px;
-	margin-bottom: 15px;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 
@@ -3757,20 +3775,20 @@ ul.chat-available-user li a:hover {
 }
 
 
-/* マイ記事登録 */
+/* Contact Form */
 
-#article-register {
+#contact {
     padding: 40px 0;
 }
 
-.article-register-form {}
+.contact-form {}
 
-.article-register-form label {
+.contact-form label {
     color: #999;
 }
 
-.article-register-form input,
-.article-register-form textarea {
+.contact-form input,
+.contact-form textarea {
     padding: 10px 12px;
     border-radius: 0;
     box-shadow: none;
@@ -3778,11 +3796,11 @@ ul.chat-available-user li a:hover {
     height: auto;
 }
 
-.article-register-form .form-send {
+.contact-form .form-send {
     text-align: center;
 }
 
-.article-register-form .form-send button {
+.contact-form .form-send button {
     background: #4ECDC4;
     border: 0;
     padding: 10px 30px;
@@ -3791,11 +3809,11 @@ ul.chat-available-user li a:hover {
     cursor: pointer;
 }
 
-.article-register-form .form-send button:hover {
+.contact-form .form-send button:hover {
     background: #2cb5ab;
 }
 
-.article-register-form .validate {
+.contact-form .validate {
     display: none;
     color: red;
     margin: 0 0 15px 0;
@@ -3803,7 +3821,7 @@ ul.chat-available-user li a:hover {
     font-size: 13px;
 }
 
-.article-register-form .loading {
+.contact-form .loading {
     display: none;
     color: #555;
     background: #fff;
@@ -3812,7 +3830,7 @@ ul.chat-available-user li a:hover {
     margin: 15px 0;
 }
 
-.article-register-form .loading:before {
+.contact-form .loading:before {
     content: "";
     display: inline-block;
     border-radius: 50%;
@@ -3822,11 +3840,6 @@ ul.chat-available-user li a:hover {
     border-top-color: #eee;
     -webkit-animation: animate-loading 1s linear infinite;
     animation: animate-loading 1s linear infinite;
-}
-
-.my-article-list{
-    margin-top: auto;
-
 }
 
 @-webkit-keyframes animate-loading {
@@ -3851,7 +3864,7 @@ ul.chat-available-user li a:hover {
     }
 }
 
-.article-register-form .error-message {
+.contact-form .error-message {
     display: none;
     color: #fff;
     background: #ed3c0d;
@@ -3861,7 +3874,220 @@ ul.chat-available-user li a:hover {
     margin: 15px 0;
 }
 
-.article-register-form .sent-message {
+.contact-form .sent-message {
+    display: none;
+    color: #fff;
+    background: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+
+/* Copyrights */
+
+#copyrights {
+    background: #222222;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#copyrights p {
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+#copyrights a {
+    color: #fff;
+}
+
+#sortable li {
+    padding-left: 3em;
+    font-size: 12px;
+}
+
+#sortable li i {
+    position: absolute;
+    left: 6px;
+    padding: 4px 10px 0 10px;
+    cursor: pointer;
+}
+
+#sortable li input[type=checkbox] {
+    margin-top: 0;
+}
+
+.ui-sortable>li {
+    padding: 15px 0 15px 35px !important;
+    position: relative;
+    background: #f5f6f8;
+    margin-bottom: 2px;
+    border-bottom: none !important;
+}
+
+.ui-sortable li.list-primary {
+    border-left: 3px solid #41CAC0;
+}
+
+.ui-sortable li.list-success {
+    border-left: 3px solid #78CD51;
+}
+
+.ui-sortable li.list-danger {
+    border-left: 3px solid #FF6C60;
+}
+
+.ui-sortable li.list-warning {
+    border-left: 3px solid #F1C500;
+}
+
+.ui-sortable li.list-info {
+    border-left: 3px solid #58C9F3;
+}
+
+.ui-sortable li.list-inverse {
+    border-left: 3px solid #BEC3C7;
+}
+
+
+/*footer*/
+
+.site-footer {
+    background: #4ECDC4;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.site-footer p {
+    margin-bottom: 5px;
+}
+
+.credits,
+.credits a {
+    color: #fff;
+}
+
+.go-top {
+    margin-right: 1%;
+    margin-top: -25px;
+    float: right;
+    background: rgba(255, 255, 255, .5);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.go-top i {
+    color: #2A3542;
+}
+
+.site-min-height {
+    min-height: 900px;
+}
+
+
+/* Contact Form */
+
+#contact {
+    padding: 40px 0;
+}
+
+.contact-form {}
+
+.contact-form label {
+    color: #999;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px 12px;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    height: auto;
+}
+
+.contact-form .form-send {
+    text-align: center;
+}
+
+.contact-form .form-send button {
+    background: #4ECDC4;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.contact-form .form-send button:hover {
+    background: #2cb5ab;
+}
+
+.contact-form .validate {
+    display: none;
+    color: red;
+    margin: 0 0 15px 0;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.contact-form .loading {
+    display: none;
+    color: #555;
+    background: #fff;
+    text-align: center;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.contact-form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    border: 3px solid #18d26e;
+    border-top-color: #eee;
+    -webkit-animation: animate-loading 1s linear infinite;
+    animation: animate-loading 1s linear infinite;
+}
+
+@-webkit-keyframes animate-loading {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate-loading {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.contact-form .error-message {
+    display: none;
+    color: #fff;
+    background: #ed3c0d;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+.contact-form .sent-message {
     display: none;
     color: #fff;
     background: #18d26e;

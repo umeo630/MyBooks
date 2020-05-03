@@ -18,6 +18,7 @@
   <link href="{{ asset('css/framework/font-awesome.css') }}" rel="stylesheet" />
   <link href="{{ asset('css/dashio/style.css') }}" rel="stylesheet">
   <link href="{{ asset('css/dashio/style-responsive.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/common.css') }}" rel="stylesheet">
 
 </head>
 

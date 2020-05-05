@@ -43,3 +43,38 @@
 .article-list {
     float: left;
 }
+
+.user-name {
+    font-weight: 700;
+    color: #48cfad;
+}
+
+.article-head {
+    background: #4ECDC4;
+    color: #FFFFFF;
+    min-height: 70px;
+    padding: 15px;
+}
+
+.article-head h3 {
+    margin: 5px 0 0;
+    font-weight: 100;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.article-main {
+    background-color: #fff;
+    padding: 15px;
+    letter-spacing: 1px;
+}
+
+.content-panel {
+    background-color: #eaeaea;
+}
+
+.chat-txt2 {
+    float: left;
+    margin-right: 5px;
+    width: 100%;
+}

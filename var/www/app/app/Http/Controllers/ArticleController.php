@@ -11,6 +11,11 @@ class ArticleController extends Controller
     {
         return view('article_list');
     }
+    //みんなの記事詳細
+    function articleDetails()
+    {
+        return view('article_details');
+    }
 
     //マイ記事登録画面
     function articleRegister()

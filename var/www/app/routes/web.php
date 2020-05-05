@@ -21,6 +21,9 @@ Route::get('/article/register', 'ArticleController@articleRegister');
 Route::get('user/login', 'UserController@userLogin');
 //新規会員登録
 Route::get('user/register', 'UserController@userRegister');
+//記事詳細画面
+Route::get('/article/details', 'ArticleController@articleDetails');
+
 
 Route::get('/user', 'UserController@userPage');
 

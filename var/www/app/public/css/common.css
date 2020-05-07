@@ -45,8 +45,7 @@
 }
 
 .user-name {
-    font-weight: 700;
-    color: #48cfad;
+    color: #fff;
 }
 
 .article-head {
@@ -54,6 +53,7 @@
     color: #FFFFFF;
     min-height: 70px;
     padding: 15px;
+    width: 100%;
 }
 
 .article-head h3 {
@@ -64,7 +64,6 @@
 }
 
 .article-main {
-    background-color: #fff;
     padding: 15px;
     letter-spacing: 1px;
 }
@@ -77,4 +76,10 @@
     float: left;
     margin-right: 5px;
     width: 100%;
+}
+
+.group-rom .third-part02 {
+    width: 15%;
+    float: left;
+    padding: 15px;
 }

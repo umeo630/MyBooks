@@ -6,11 +6,12 @@
 @endsection
 @section('main-content')
 <section id="main-content">
-    <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> マイ記事管理</h3>
-        <!-- BASIC FORM ELELEMNTS -->
-        <div class="row mt">
-            <div class="col-lg-6 col-md-6 col-sm-6">
+    <section class="wrapper site-min-height">
+        <div class="row">
+            <div class="article-head">
+                <h3><i class="fa fa-angle-right"></i> マイ記事管理</h3>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 mt">
                 <h4 class="title">マイ記事登録</h4>
                 <form class="article-reegister-form" role="form" action="contactform/contactform.php" method="POST">
                     <div class="form-group">
@@ -30,12 +31,12 @@
                         <textarea class="form-control" name="" placeholder="感想を記入してください。" rows="5"></textarea>
                     </div>
                     <div class="form-send">
-                        <button type="submit" class="btn btn-large btn-primary">登録</button>
+                        <button type="submit" class="btn btn-large btn-theme">登録</button>
                     </div>
                 </form>
             </div>
             <!-- マイ記事一覧 -->
-            <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-6 mt">
                 <h4 class="title">マイ記事一覧</h4>
                 <div class="list-group">
                     <a data-toggle="modal" href="#modalArticleEdit" class="list-group-item list-group-item flex-column align-items-start">

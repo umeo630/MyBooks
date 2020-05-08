@@ -33,18 +33,57 @@
       *********************************************************************************************************************************************************** -->
     <div id="register-page">
         <div class="container">
-            <form class="form-register" action="index.html">
+            <form class="form-register" action="{{ route('register') }}" method="POST">
                 <h2 class="form-register-heading">新規会員登録</h2>
                 <div class="register-wrap">
-                    <input type="text" class="form-control" placeholder="名前" autofocus>
-                    <br>
-                    <input type="text" class="form-control" placeholder="メールアドレス" autofocus>
-                    <br>
-                    <input type="password" class="form-control" placeholder="パスワード">
-                    <br>
-                    <input type="password" class="form-control" placeholder="パスワード再確認">
-                    <br>
-                    <button class="btn btn-theme btn-block" href="index.html" type="submit">アカウント登録</button>
+
+                    <div class="form-group row">
+                        <label for="name" class="form-label">{{ __('名前') }}</label>
+                        <input id="name" type="text" class="form-control @error ('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus autocomplete="name">
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="email" class=" form-label">{{ __('メールアドレス') }}</label>
+
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="password" class=" form-label">{{ __('パスワード') }}</label>
+
+
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="password-confirm" class=" form-label">{{ __('パスワード再確認') }}</label>
+
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+
+                    </div>
+
+                    <button type="submit" class="btn btn-theme btn-block ">
+                        {{ __('登録') }}
+                    </button>
+
                     <div class="password_forget">
                         <hr>
                         <div class="register-social-link centered">
@@ -54,25 +93,27 @@
                         </div>
                         <div class="registration">
                             ログインはこちら<br />
-                            <a class="" href="login.html">
+                            <a class="" href="login">
                                 ログイン
                             </a>
                         </div>
                     </div>
+                </div>
+
             </form>
         </div>
     </div>
 
-  <!-- js placed at the end of the document so the pages load faster -->
-  <script src="{{ asset('/js/framework/jquery.min.js') }}"></script>
-  <script src="{{ asset('/js/framework/bootstrap.min.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('/js/framework/jquery.backstretch.min.js') }}"></script>
-  <script>
-    $.backstretch(
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="{{ asset('/js/framework/jquery.min.js') }}"></script>
+    <script src="{{ asset('/js/framework/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/framework/jquery.backstretch.min.js') }}"></script>
+    <script>
+        $.backstretch(
         "{{ asset('/img/framework/register-bg.jpg') }}", {
       speed: 500
     });
-  </script>
-  </body>
+    </script>
+</body>
 
 </html>

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 // 記事一覧画面
 Route::get('/', 'ArticleController@articleList');
 //マイ記事登録
-Route::get('/article/register', 'ArticleController@articleRegister');
+Route::get('/article/register', 'ArticleController@articleRegister')->name('article.register');
 //ユーザーログイン
 Route::get('user/login', 'UserController@userLogin');
 //新規会員登録
@@ -28,5 +28,3 @@ Route::get('/article/details', 'ArticleController@articleDetails');
 Route::get('/user', 'UserController@userPage');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -92,7 +92,7 @@
                     </div>
                     <div class="registration">
                         アカウントの新規作成はこちら<br />
-                        <a class="" href="register.html">
+                        <a class="" href="{{ route('register')}}">
                             新規作成
                         </a>
                     </div>

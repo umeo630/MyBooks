@@ -37,27 +37,31 @@
 
                 <h2 class="form-login-heading">BOOKHISTORYにログイン</h2>
                 <div class="login-wrap">
-
                     <div class="form-group">
                         <label for="email" class="form-label ">{{ __('メールアドレス') }}</label>
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <div>
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="password" class="form-label ">{{ __('パスワード') }}</label>
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <label for="password" class="form-label">{{ __('パスワード') }}</label>
 
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <div>
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -70,14 +74,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="password_forget">
                         <button type="submit" class="btn btn-theme btn-block">
                             {{ __('ログイン') }}
                         </button>
-                    </div>
 
-                    <hr>
-                    <div class="password_forget">
+                        <hr>
+
                         @if (Route::has('password.request'))
                         <a class="" href="{{ route('password.request') }}">
                             {{ __('パスワードをお忘れの場合') }}
@@ -96,30 +99,32 @@
                             新規作成
                         </a>
                     </div>
-
-                    <!-- Modal -->
-                    <div aria-hidden=" true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title">パスワードをお忘れですか?</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>パスワードをリセットするには、メールアドレスを入力してください。</p>
-                                    <input type="text" name="email" placeholder="メールアドレス" autocomplete="off" class="form-control placeholder-no-fix">
-                                </div>
-                                <div class="modal-footer">
-                                    <button data-dismiss="modal" class="btn btn-default" type="button">キャンセル</button>
-                                    <button class="btn btn-theme" type="button">送信</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- modal -->
+                </div>
             </form>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div aria-hidden=" true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">パスワードをお忘れですか?</h4>
+                </div>
+                <div class="modal-body">
+                    <p>パスワードをリセットするには、メールアドレスを入力してください。</p>
+                    <input type="text" name="email" placeholder="メールアドレス" autocomplete="off" class="form-control placeholder-no-fix">
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">キャンセル</button>
+                    <button class="btn btn-theme" type="button">送信</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal -->
+
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="{{ asset('/js/framework/jquery.min.js') }}"></script>
     <script src="{{ asset('/js/framework/bootstrap.min.js') }}"></script>

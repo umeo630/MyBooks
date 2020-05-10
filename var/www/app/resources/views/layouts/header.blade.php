@@ -39,10 +39,13 @@
     <div class="top-menu">
         <ul class="nav pull-right top-menu">
             @auth
-                <li><a class="logout" href="{{ url('/logout') }}">ログアウト</a></li>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="btn btn-theme" type="submit">ログアウト</button>
+            </form>
             @else
-                <li><a href="{{ route('login') }}" class="logout">ログイン</a></li>
-                <li><a href="{{ route('register') }}" class="logout">ユーザー登録</a></li>
+            <li><a href="{{ route('login') }}" class="logout">ログイン</a></li>
+            <li><a href="{{ route('register') }}" class="logout">ユーザー登録</a></li>
             @endauth
         </ul>
     </div>

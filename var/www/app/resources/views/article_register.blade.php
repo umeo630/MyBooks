@@ -13,22 +13,24 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 mt">
                 <h4 class="title">マイ記事登録</h4>
-                <form class="article-reegister-form" role="form" action="contactform/contactform.php" method="POST">
+                <form class="article-reegister-form" role="form" action="{{ route('article.store')}}" method="POST">
+                    @csrf
+
                     <div class="form-group">
                         <label class="mt-3">記事タイトル：</label>
-                        <input type="text" name="" class="form-control" placeholder="記事タイトルを記入してください。">
+                        <input type="text" name="title" class="form-control" placeholder="記事タイトルを記入してください。">
                     </div>
                     <div class="form-group">
                         <label class="mt-3">読んだ本：</label>
-                        <input type="text" name="" class="form-control" placeholder="読んだ本を記入してください。">
+                        <input type="text" name="book_title" class="form-control" placeholder="読んだ本を記入してください。">
                     </div>
                     <div class="form-group">
                         <label class="mt-3">読み終わった日：</label>
                         <input type="date" class="form-control" name="date">
                     </div>
                     <div class="form-group">
-                        <label class="mt-3">感想：</label>
-                        <textarea class="form-control" name="" placeholder="感想を記入してください。" rows="5"></textarea>
+                        <label class="mt-3">本文：</label>
+                        <textarea class="form-control" name="body" placeholder="感想を記入してください。" rows="5"></textarea>
                     </div>
                     <div class="form-send">
                         <button type="submit" class="btn btn-large btn-theme">登録</button>

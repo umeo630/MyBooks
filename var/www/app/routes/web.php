@@ -18,7 +18,7 @@ Route::get('/', 'ArticleController@articleList')->name('article.list');
 //マイ記事登録
 Route::get('/article/register', 'ArticleController@articleRegister')->name('article.register')->middleware('auth');
 //記事詳細画面
-Route::get('/article/details', 'ArticleController@articleDetails');
+Route::get('/article/{id}', 'ArticleController@articleDetails')->name('article.details');
 //記事登録処理
 Route::post('/article', 'ArticleController@articleStore')->name('article.store');
 

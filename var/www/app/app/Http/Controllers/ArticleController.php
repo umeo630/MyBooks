@@ -20,9 +20,13 @@ class ArticleController extends Controller
         return view('article_list', ['articles' => $articles]);
     }
     //みんなの記事詳細
-    function articleDetails()
+    function articleDetails(Request $request, $id, Article $article)
     {
-        return view('article_details');
+        //取得したidでフィルタ
+        $article = Article::find($id);
+
+        //article_details表示、＄articleを渡す
+        return view('article_details', ['article' => $article]);
     }
 
     //マイ記事管理画面
@@ -39,15 +43,13 @@ class ArticleController extends Controller
         // 成功時、resultにtrueが入る
         $article = new Article();
         $result = $article->insertArticle($request);
-        
-        if($result){
+
+        if ($result) {
             // 成功時処理
             return redirect()->route('article.list');
-        }else{
+        } else {
             // 失敗時処理
             var_dump('処理失敗');
         }
-
-
     }
 }

@@ -20,9 +20,17 @@ class ArticleController extends Controller
         return view('article_list', ['articles' => $articles]);
     }
     //みんなの記事詳細
-    function articleDetails()
+<<<<<<< HEAD
+    function articleDetails(Request $request, $id, Article $article)
+=======
+    function articleDetails(Request $request $id, Article $article)
+>>>>>>> 652abb8f07f7a88d7f88774e1b0f21ed2d3d9743
     {
-        return view('article_details');
+        //取得したidでフィルタ
+        $article = Article::find($id);
+
+        //article_details表示、＄articleを渡す
+        return view('article_details', ['article' => $article]);
     }
 
     //マイ記事管理画面
@@ -39,15 +47,13 @@ class ArticleController extends Controller
         // 成功時、resultにtrueが入る
         $article = new Article();
         $result = $article->insertArticle($request);
-        
-        if($result){
+
+        if ($result) {
             // 成功時処理
             return redirect()->route('article.list');
-        }else{
+        } else {
             // 失敗時処理
             var_dump('処理失敗');
         }
-
-
     }
 }

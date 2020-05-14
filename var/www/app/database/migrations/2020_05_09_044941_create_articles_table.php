@@ -15,12 +15,21 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('book_title');
-            $table->text('body');
             $table->unsignedBigInteger('user_id');
+            $table->string('article_title')->nullable();
+            $table->string('book_title')->nullable();
+            $table->Integer('book_evaluation')->nullable();
+            $table->text('book_content')->nullable();
+            $table->text('book_impression')->nullable();
+            $table->Integer('book_price')->nullable();
+            $table->date('read_at')->nullable();
+            $table->Integer('display_flg');
+            $table->Integer('delete_flg');
+            $table->text('url')->nullable();
+            $table->date('create_at');
+            $table->date('update_at')->nullable();
+            $table->date('delete_at')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->date('date');
             $table->timestamps();
         });
     }

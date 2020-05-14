@@ -16,25 +16,17 @@
         <div class="row mt">
             <div class="content-panel">
                 <div class="article-head">
-                    <h3><a href="#" class="user-name">ユーザー名</a><span>/</span>記事タイトル</h3>
+                    <h3><a href="#" class="user-name">ユーザー名</a><span>/</span>{{ $article->article_title}}</h3>
                     <div class="pull-right">
                         <button class="btn btn-md btn-theme02"><i class="fa fa-star">いいね</i></button>
                     </div>
                 </div>
                 <br>
                 <div class="article-main">
-                    <h5>読んだ本 <span> -- 2020/05/03</span></h5>
+                    <h5>{{ $article->book_title}} <span> -- {{$article->create_at}}</span></h5>
                     <hr>
                     <p>
-                        "感想感想感想感想感想感想感想感想感想感想感想感想感想感想
-                        <br>
-                        感想感想感想感想感想感想感想感想感想感想感想感想感想感想感
-                        <br>
-                        想感想感想感想感想感想感想感想感想感想感想感想感想感想感想
-                        <br>
-                        感想感想感想感想感想感想感想感想感想感想感想感想感想感想感
-                        <br>
-                        想感想感想感想感想感想感想感想感想感想感想感想感想感想感想"
+                        {{ $article->book_content}}
                     </p>
                 </div>
                 <div class="chat-room mt">

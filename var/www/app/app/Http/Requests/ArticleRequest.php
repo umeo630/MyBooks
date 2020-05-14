@@ -24,9 +24,9 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:50',
+            'article_title' => 'required|max:50',
             'book_title' => 'required|max:50',
-            'body' => 'required|max:500',
+            'book_content' => 'required|max:500',
         ];
     }
 

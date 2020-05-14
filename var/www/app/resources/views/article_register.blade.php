@@ -18,7 +18,7 @@
 
                     <div class="form-group">
                         <label class="mt-3">記事タイトル：</label>
-                        <input type="text" name="title" class="form-control" placeholder="記事タイトルを記入してください。">
+                        <input type="text" name="article_title" class="form-control" placeholder="記事タイトルを記入してください。">
                     </div>
                     <div class="form-group">
                         <label class="mt-3">読んだ本：</label>
@@ -26,11 +26,11 @@
                     </div>
                     <div class="form-group">
                         <label class="mt-3">読み終わった日：</label>
-                        <input type="date" class="form-control" name="date">
+                        <input type="date" class="form-control" name="read_at">
                     </div>
                     <div class="form-group">
                         <label class="mt-3">本文：</label>
-                        <textarea class="form-control" name="body" placeholder="感想を記入してください。" rows="5"></textarea>
+                        <textarea class="form-control" name="book_content" placeholder="感想を記入してください。" rows="5"></textarea>
                     </div>
                     <div class="form-send">
                         <button type="submit" class="btn btn-large btn-theme">登録</button>

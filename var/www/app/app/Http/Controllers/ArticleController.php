@@ -20,11 +20,7 @@ class ArticleController extends Controller
         return view('article_list', ['articles' => $articles]);
     }
     //みんなの記事詳細
-<<<<<<< HEAD
     function articleDetails(Request $request, $id, Article $article)
-=======
-    function articleDetails(Request $request $id, Article $article)
->>>>>>> 652abb8f07f7a88d7f88774e1b0f21ed2d3d9743
     {
         //取得したidでフィルタ
         $article = Article::find($id);

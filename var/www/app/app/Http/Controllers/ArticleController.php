@@ -19,6 +19,7 @@ class ArticleController extends Controller
 
         return view('article_list', ['articles' => $articles]);
     }
+
     //みんなの記事詳細
     function articleDetails(Request $request, $id, Article $article)
     {
@@ -38,7 +39,6 @@ class ArticleController extends Controller
     //マイ記事登録処理
     function articleStore(ArticleRequest $request)
     {
-
         // sql実行
         // 成功時、resultにtrueが入る
         $article = new Article();
@@ -52,4 +52,5 @@ class ArticleController extends Controller
             var_dump('処理失敗');
         }
     }
+
 }

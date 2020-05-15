@@ -30,7 +30,7 @@ class Article extends Model
         
         // insert文の実行
         $result = DB::insert($sql, $values);
-        
+
         // 1件登録成功時、
         if($result == 1){
             return true;

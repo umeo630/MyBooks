@@ -1,16 +1,18 @@
 <?php
 
 namespace App\Models;
+
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
     protected $table = 'articles';
-    
+
     // 記事登録
     // 登録成功した場合、trueを返す
-    public function insertArticle($request){
+    public function insertArticle($request)
+    {
 
         // validation済みの値を取得する
         // TODO:book_evaluationの値入力させる
@@ -19,25 +21,36 @@ class Article extends Model
         $book_title = $request->book_title;
         $book_content = $request->book_content;
         $read_at = $request->read_at;
+        $book_evaluation = $request->book_evaluation;
+
+        // 画像アッピロードに成功しているか確認
+        if ($request->file('photo')->isValid()) {
+
+
+            //ファイルを'記事id.jpg'としてpublicディレクトリに保存
+            $article_count = (string) Article::count() + 1;
+
+            $photo = $request->file('photo')->storeAs('public/article_image', $article_count . '.' . 'jpg');
+            //ファイルのURLを生成
+            $url = asset($photo);
+        }
 
         // sql用のvalue
-        $values =array($user_id, $article_title, $book_title, $book_content, $read_at, 0, 0);
+        $values = array($user_id, $article_title, $book_title, $book_content, $read_at, $book_evaluation, $url, 0, 0);
 
         // 実行sqlの作成
         $sql = 'INSERT INTO articles';
-        $sql .='          ( user_id, article_title, book_title, book_content, read_at, display_flg, delete_flg, create_at )';
-        $sql .='   VALUES ( ?, ?, ?, ?, ?, ?, ?, now() )';
-        
+        $sql .= '          ( user_id, article_title, book_title, book_content, read_at, book_evaluation, url, display_flg, delete_flg, create_at )';
+        $sql .= '   VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, now() )';
+
         // insert文の実行
         $result = DB::insert($sql, $values);
-        
+
         // 1件登録成功時、
-        if($result == 1){
+        if ($result == 1) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
-
     }
 }

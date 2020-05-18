@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class ArticleRequest extends FormRequest
 {
@@ -24,18 +25,22 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'article_title' => 'required|max:50',
-            'book_title' => 'required|max:50',
-            'book_content' => 'required|max:500',
+            'article_title' => 'nullable|max:50',
+            'book_title' => 'nullable|max:50',
+            'book_content' => 'nullable|max:500',
+            'book_evaluation' => 'nullable|between:1,5',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 
     public function attributes()
     {
         return [
-            'title' => 'タイトル',
+            'article_title' => 'タイトル',
             'book_title' => '本のタイトル',
-            'body' => '本文',
+            'book_content' => '本文',
+            'book_evaluation' => '評価',
+            'image' => '画像',
         ];
     }
 }

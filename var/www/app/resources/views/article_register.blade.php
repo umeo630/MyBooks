@@ -8,12 +8,21 @@
 <section id="main-content">
     <section class="wrapper site-min-height">
         <div class="row">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="article-head">
                 <h3><i class="fa fa-angle-right"></i> マイ記事管理</h3>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 mt">
                 <h4 class="title">マイ記事登録</h4>
-                <form class="article-reegister-form" role="form" action="{{ route('article.store')}}" method="POST">
+                <form enctype="multipart/form-data" class="article-reegister-form" action="{{ route('article.store')}}" method="POST">
                     @csrf
 
                     <div class="form-group">
@@ -27,6 +36,18 @@
                     <div class="form-group">
                         <label class="mt-3">読み終わった日：</label>
                         <input type="date" class="form-control" name="read_at">
+                    </div>
+                    <div class="form-group">
+                        <label class="mt-3">評価：</label>
+                        <input type="number" class="form-control" name="book_evaluation" placeholder="1:全くおすすめしない、2:おすすめしない、3:、普通4:、おすすめ5:かなりおすすめ">
+                    </div>
+                    <div class="form-group">
+                        <label class="mt-3">価格：</label>
+                        <input type="number" class="form-control" name="price" placeholder="価格を記入してください。">
+                    </div>
+                    <div class="form-group">
+                        <label class="mt-3">画像：</label>
+                        <input type="file" class="form-control" name="photo" placeholder="画像をアップロードしてください。">
                     </div>
                     <div class="form-group">
                         <label class="mt-3">本文：</label>

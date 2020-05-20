@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -21,10 +23,10 @@ class ArticleController extends Controller
     }
 
     //みんなの記事詳細
-    function articleDetails(Request $request, $id, Article $article)
+    function articleDetails($id, Article $article)
     {
         //取得したidでフィルタ
-        $article = Article::find($id);
+        $article = DB::table('articles')->find($id);
 
         //article_details表示、＄articleを渡す
         return view('article_details', ['article' => $article]);
@@ -33,7 +35,12 @@ class ArticleController extends Controller
     //マイ記事管理画面
     function articleRegister()
     {
-        return view('article_register');
+        //ログインしているユーザーのidを取得
+        $user_id = Auth::id();
+        //ログインしているユーザーの記事を表示(articlesテーブルのuser_idと一致した記事を表示)
+        $articles = DB::table('articles')->where('user_id', $user_id)->get();
+
+        return view('article_register', ['articles' => $articles, 'user_id' => $user_id]);
     }
 
     //マイ記事登録処理
@@ -52,5 +59,19 @@ class ArticleController extends Controller
             var_dump('処理失敗');
         }
     }
+    //マイ記事編集処理
+    function articleUpdate(ArticleRequest $request)
+    {
+        //編集する記事のインスタンスを呼び出す
+        $article = Article::find($request->id);
 
+        //入力されたデータを取り出して保存
+        $form = $request->all();
+
+        unset($form['_token']);
+
+        $article->fill($form)->save();
+
+        return redirect()->route('article.register');
+    }
 }

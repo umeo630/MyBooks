@@ -13,9 +13,9 @@
                 <div class="list-group-main mt">
                     <i class="fa fa-user-circle fa-3x mr-1"></i>
                     <div class="font-weight-bold">
-                        <a href="" class="user-name">ユーザー名</a>
+                        <a href="" class="user-name">{{$article->user->name}}</a>
                     </div>
-                    <a href="{{ route('article.details',[$article->id])}}" class="list-group-item list-group-item flex-column align-items-start">
+                    <a href="{{ route('article.details',[$article->id])}}" class="list-group-item flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
                             <h3 class="mb-1">{{ $article->article_title}}</h3>
                             <p class="text-muted">{{ $article->create_at}}</p>

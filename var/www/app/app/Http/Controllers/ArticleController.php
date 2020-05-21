@@ -63,7 +63,7 @@ class ArticleController extends Controller
     function articleUpdate(ArticleRequest $request)
     {
         //編集する記事のインスタンスを呼び出す
-        $article = DB::table('articles')->find($request->id);
+        $article = Article::find($request->id);
 
 
         //入力されたデータを取り出して保存

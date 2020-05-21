@@ -61,9 +61,10 @@ class Article extends Model
             return true;
         } else {
             return false;
-       
+        }
     }
-　　　public function user()
+
+    public function user()
     {
         //記事を投稿したユーザー情報を取得
         return $this->belongsTo('App\User');

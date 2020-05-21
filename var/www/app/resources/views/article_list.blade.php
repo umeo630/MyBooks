@@ -17,6 +17,7 @@
                     </div>
                     <a href="{{ route('article.details',[$article->id])}}" class="list-group-item flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
+                            <img src="{{asset('app/public/public/19.jpg')}}" width="300" height="200">
                             <h3 class="mb-1">{{ $article->article_title}}</h3>
                             <p class="text-muted">{{ $article->create_at}}</p>
                             <h4 class="mb-1">{{ $article->book_title}}</h4>

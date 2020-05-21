@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -19,11 +21,12 @@ class ArticleController extends Controller
 
         return view('article_list', ['articles' => $articles]);
     }
+
     //みんなの記事詳細
-    function articleDetails(Request $request, $id, Article $article)
+    function articleDetails(Request $request, Article $article)
     {
         //取得したidでフィルタ
-        $article = Article::find($id);
+        $article = DB::table('articles')->find($request->id);
 
         //article_details表示、＄articleを渡す
         return view('article_details', ['article' => $article]);
@@ -32,13 +35,17 @@ class ArticleController extends Controller
     //マイ記事管理画面
     function articleRegister()
     {
-        return view('article_register');
+        //ログインしているユーザーのidを取得
+        $user_id = Auth::id();
+        //ログインしているユーザーの記事を表示(articlesテーブルのuser_idと一致した記事を表示)
+        $articles = DB::table('articles')->where('user_id', $user_id)->get();
+
+        return view('article_register', ['articles' => $articles, 'user_id' => $user_id]);
     }
 
     //マイ記事登録処理
     function articleStore(ArticleRequest $request)
     {
-
         // sql実行
         // 成功時、resultにtrueが入る
         $article = new Article();
@@ -51,5 +58,30 @@ class ArticleController extends Controller
             // 失敗時処理
             var_dump('処理失敗');
         }
+    }
+    //マイ記事編集処理
+    function articleUpdate(ArticleRequest $request)
+    {
+        //編集する記事のインスタンスを呼び出す
+        $article = DB::table('articles')->find($request->id);
+
+
+        //入力されたデータを取り出して保存
+        $form = $request->all();
+
+        unset($form['_token']);
+
+        $article->fill($form)->save();
+
+        return redirect()->route('article.register');
+    }
+
+    //マイ記事削除処理
+    function articleDestroy(Request $request)
+    {
+        //削除する記事のインスタンスを呼び出し、削除
+        Article::find($request->id)->delete();
+
+        return redirect()->route('article.register');
     }
 }

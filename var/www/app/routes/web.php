@@ -21,6 +21,10 @@ Route::get('/article/register', 'ArticleController@articleRegister')->name('arti
 Route::get('/article/{id}', 'ArticleController@articleDetails')->name('article.details');
 //記事登録処理
 Route::post('/article', 'ArticleController@articleStore')->name('article.store');
+//記事更新処理
+Route::post('/article/update/{id}', 'ArticleController@articleUpdate')->name('article.update');
+//記事削除処理
+Route::post('/article/delete', 'ArticleController@articleDestroy')->name('article.delete');
 
 
 //ユーザーページ

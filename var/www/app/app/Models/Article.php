@@ -9,6 +9,16 @@ class Article extends Model
 {
     protected $table = 'articles';
 
+
+    //編集可能にする
+    protected $fillable = [
+        'article_title',
+        'book_title',
+        'book_content',
+        'read_at',
+    ];
+
+
     // 記事登録
     // 登録成功した場合、trueを返す
     public function insertArticle($request)
@@ -51,6 +61,11 @@ class Article extends Model
             return true;
         } else {
             return false;
-        }
+       
+    }
+　　　public function user()
+    {
+        //記事を投稿したユーザー情報を取得
+        return $this->belongsTo('App\User');
     }
 }

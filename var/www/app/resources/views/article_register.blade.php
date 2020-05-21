@@ -60,10 +60,10 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="modalArticleEditLabel">マイ記事編集</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
+                            <h4 class="modal-title" id="modalArticleEditLabel">マイ記事編集</h4>
                         </div>
                         <div class="modal-body">
                             <form class="article-reegister-form" role="form" action="{{ route ('article.update',['id' => $article->id])}}" method="POST">
@@ -86,14 +86,38 @@
                                 </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-danger">削除</button>
+                            <a data-toggle="modal" data-target="#modal-delete-{{$article->id}}" class="btn btn-danger">削除</a>
                             <button type="submit" class="btn btn-primary">保存</button>
                         </div>
                         </form>
                     </div>
                 </div>
             </div>
-            @endforeach
+            <div class="modal" id="modal-delete-{{$article->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog　modal-dialog-centerd" 　 role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="modalArticleEditLabel">マイ記事削除</h4>
+                        </div>
+                        <form method="POST" action="{{ route('article.delete')}}">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$article->id}}">
+                            <div class="modal-body">
+                                {{ $article->article_title }}を削除します。よろしいですか？
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <a class="btn btn-default" data-dismiss="modal">キャンセル</a>
+                                <button type="submit" class="btn btn-danger">削除</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
     </section>
     <!-- /wrapper -->
 </section>

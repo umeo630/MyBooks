@@ -23,6 +23,8 @@ Route::get('/article/{id}', 'ArticleController@articleDetails')->name('article.d
 Route::post('/article', 'ArticleController@articleStore')->name('article.store');
 //記事更新処理
 Route::post('/article/update/{id}', 'ArticleController@articleUpdate')->name('article.update');
+//記事削除処理
+Route::post('/article/delete', 'ArticleController@articleDestroy')->name('article.delete');
 
 
 //ユーザーページ

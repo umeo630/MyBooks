@@ -23,10 +23,10 @@ class ArticleController extends Controller
     }
 
     //みんなの記事詳細
-    function articleDetails($id, Article $article)
+    function articleDetails(Request $request, Article $article)
     {
         //取得したidでフィルタ
-        $article = DB::table('articles')->find($id);
+        $article = DB::table('articles')->find($request->id);
 
         //article_details表示、＄articleを渡す
         return view('article_details', ['article' => $article]);
@@ -63,7 +63,8 @@ class ArticleController extends Controller
     function articleUpdate(ArticleRequest $request)
     {
         //編集する記事のインスタンスを呼び出す
-        $article = Article::find($request->id);
+        $article = DB::table('articles')->find($request->id);
+
 
         //入力されたデータを取り出して保存
         $form = $request->all();
@@ -71,6 +72,15 @@ class ArticleController extends Controller
         unset($form['_token']);
 
         $article->fill($form)->save();
+
+        return redirect()->route('article.register');
+    }
+
+    //マイ記事削除処理
+    function articleDestroy(Request $request)
+    {
+        //削除する記事のインスタンスを呼び出し、削除
+        Article::find($request->id)->delete();
 
         return redirect()->route('article.register');
     }

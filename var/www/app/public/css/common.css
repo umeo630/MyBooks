@@ -87,3 +87,71 @@
 .form-label {
     margin-left: 5px;
 }
+
+.modal-content2 {
+    position: relative;
+    background-color: #eaeaea;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5)
+}
+
+.chat-room-head2 {
+    background: #fff;
+    color: #797979;
+    min-height: 70px;
+    padding: 15px;
+}
+
+.chat-room-head2 h3 {
+    margin: 5px 0 0;
+    font-weight: 100;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.room-desk2 {
+    display: inline-block;
+    width: 100%;
+    padding: 35px 15px 15px 15px;
+}
+
+.invite-row2 {
+    background-color: #fff;
+    padding: 6px 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.invite-row2-content {
+    background-color: #967adc;
+    border-color: #967adc;
+    border-radius: 3px;
+    padding: 5px 5px 5px 0;
+    width: 45%;
+    margin: 0 auto;
+}
+
+.invite-row2-content i {
+    color: #fff;
+}
+
+.invite-row2-content p {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 0;
+    color: #fff;
+}
+
+.invite-row3 {
+    background-color: #4ECDC4;
+    color: #fff;
+    padding: 6px 10px;
+    display: inline-block;
+    width: 100%;
+}

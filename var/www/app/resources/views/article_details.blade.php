@@ -7,57 +7,125 @@
 @section('main-content')
 <section id="main-content">
     <section class="wrapper site-min-height">
-        <div class="pull-left">
-            <h4><a href="#">≪前の記事</a></h4>
-        </div>
-        <div class="pull-right">
-            <h4><a href="#">≫次の記事</a></h4>
-        </div>
-        <div class="row mt">
-            <div class="content-panel">
-                <div class="article-head">
-                    <h3><a href="#" class="user-name">ユーザー名</a><span>/</span>{{ $article->article_title}}</h3>
-                    <div class="pull-right">
-                        <button class="btn btn-md btn-theme02"><i class="fa fa-star">いいね</i></button>
-                    </div>
-                </div>
-                <br>
-                <div class="article-main">
-                    <h5>{{ $article->book_title}} <span> -- {{$article->create_at}}</span></h5>
-                    <hr>
-                    <p>
-                        {{ $article->book_content}}
-                    </p>
-                </div>
-                <div class="chat-room mt">
-                    <div class="group-rom mt">
-                        <div class="first-part text-center"> <a href="#">ユーザー名</a></div>
-                        <div class="second-part">コメントコメントココメントコメントコメントコメントコメント</div>
-                        <div class="third-part02">10:09</div>
-                        <div class="first-part text-center"> <a href="#">ユーザー名</a></div>
-                        <div class="second-part">コメントコメントココメントコメントコメントコメントコメント</div>
-                        <div class="third-part02">10:09</div>
-                        <div class="first-part text-center"><a href="#">ユーザー名</a></div>
-                        <div class="second-part">コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント</div>
-                        <div class="third-part02">10:09</div>
-                    </div>
-                    <a href="#" class="pull-right">>コメントを全て見る</a>
-                    <div class="chat-txt2 mt">
-                        <textarea rows="3" class="form-control" placeholder="コメントを入力してください"></textarea>
-                        <div class="grey-style">
-                            <div class="pull-right">
-                                <button class="btn btn-md btn-theme03">送信</button>
-                            </div>
+        <!-- page start-->
+        <div class="chat-room mt">
+            <aside class="right-side">
+                <div class="room-desk2">
+                    <img src="/img/framework/login-bg.jpg" alt="" width="100%" height="auto">
+                    <div class="invite-row2">
+                        <div class="invite-row2-content centered">
+                            <p><i class="fa fa-star"></i> 150</p>
                         </div>
                     </div>
                 </div>
-
-            </div>
-
+            </aside>
+            <aside class="mid-side">
+                <div class="chat-room-head2">
+                    <h2>{{$article->article_title}}</h2>
+                    <a href="#" class="pull-right btn btn-md btn-theme02"><i class="fa fa-star"> お気に入り</i></a>
+                    <h3><a href="#">ユーザー名</a></h3>
+                </div>
+                <div class="room-desk">
+                    <h3>読んだ本：{{$article->book_title}}</h3>
+                    <h4>作成日：{{$article->create_at}} <span>／</span>価格：¥2,500</h4>
+                    <h3>★★★★★ 5</h3>
+                    <div class="mt">
+                        <h4>感想</h4>
+                        <br>
+                        <p>{{$article->book_content}}</p>
+                    </div>
+                </div>
+            </aside>
         </div>
 
 
-
+        <div class="chat-room">
+            <aside class="right-side">
+                <div class="invite-row3 text-center">
+                    <h4>ユーザー名の他の記事</h4>
+                </div>
+                <ul class="chat-available-user">
+                    <li>
+                        <a href="chat_room.html">
+                            <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">
+                            記事タイトル
+                        </a>
+                    </li>
+                    <li>
+                        <a href="chat_room.html">
+                            <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">
+                            記事タイトル
+                        </a>
+                    </li>
+                    <li>
+                        <a href="chat_room.html">
+                            <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">
+                            記事タイトル
+                        </a>
+                    </li>
+                    <li>
+                        <a href="chat_room.html">
+                            <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">
+                            記事タイトル
+                        </a>
+                    </li>
+                    <li>
+                        <a href="chat_room.html">
+                            <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">
+                            記事タイトル
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <aside class="mid-side">
+                <div class="chat-room-head2 text-center">
+                    <h4>コメント一覧</h4>
+                </div>
+                <div class="group-rom">
+                    <div class="first-part odd">Sam Soffes</div>
+                    <div class="second-part">Hi Mark, have a minute?</div>
+                    <div class="third-part">12:30</div>
+                </div>
+                <div class="group-rom">
+                    <div class="first-part">Mark Simmons</div>
+                    <div class="second-part">Of course Sam, what you need?</div>
+                    <div class="third-part">12:31</div>
+                </div>
+                <div class="group-rom">
+                    <div class="first-part odd">Sam Soffes</div>
+                    <div class="second-part">I want you examine the new product</div>
+                    <div class="third-part">12:32</div>
+                </div>
+                <div class="group-rom">
+                    <div class="first-part">Mark Simmons</div>
+                    <div class="second-part">Ok, send me the pic</div>
+                    <div class="third-part">12:32</div>
+                </div>
+                <div class="group-rom">
+                    <div class="first-part odd">Sam Soffes</div>
+                    <div class="second-part">
+                        <a href="#">product.jpg</a> <span class="text-muted">35.4KB</span>
+                        <p><img class="img-responsive" src="img/product.jpg" alt=""></p>
+                    </div>
+                    <div class="third-part">12:32</div>
+                </div>
+                <div class="group-rom">
+                    <div class="first-part">Mark Simmons</div>
+                    <div class="second-part">Fantastic job, love it :)</div>
+                    <div class="third-part">12:32</div>
+                </div>
+                <div class="group-rom last-group">
+                    <div class="first-part odd">Sam Soffes</div>
+                    <div class="second-part">Thanks!!</div>
+                    <div class="third-part">12:33</div>
+                </div>
+                <footer>
+                    <div class="chat-txt">
+                        <input type="text" class="form-control">
+                    </div>
+                    <button class="btn btn-theme">送信</button>
+                </footer>
+            </aside>
         </div>
     </section>
 </section>

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'みんなの記事一覧')
+@section('title', 'パスワード再設定')
 
 @section('stylesheet')
 <!-- 固有css -->
@@ -23,13 +23,15 @@
                         @csrf
 
                         <p>パスワードをリセットするには、メールアドレスを入力してください。</p>
-                        <input type="text" name="email" placeholder="メールアドレス" autocomplete="email" value="{{ old('email') }}" class="form-control placeholder-no-fix">
+                        <div class="form-group">
+                            <input type="text" name="email" placeholder="メールアドレス" autocomplete="email" value="{{ old('email') }}" class="form-control placeholder-no-fix">
 
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
 
                         <div class="modal-footer">
                             <button class="btn btn-theme" type="submit">送信</button>

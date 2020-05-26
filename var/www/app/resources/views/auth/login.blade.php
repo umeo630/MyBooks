@@ -81,11 +81,9 @@
 
                         <hr>
 
-                        @if (Route::has('password.request'))
-                        <a class="" href="{{ route('password.request') }}">
+                        <a href="{{ route('password.request')}}">
                             {{ __('パスワードをお忘れの場合') }}
                         </a>
-                        @endif
                     </div>
 
                     <div class="login-social-link centered">
@@ -105,21 +103,36 @@
     </div>
 
     <!-- Modal -->
-    <div aria-hidden=" true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">パスワードをお忘れですか?</h4>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">パスワードをお忘れですか?</h4>
+            </div>
+            <div class="modal-body">
+                @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
                 </div>
-                <div class="modal-body">
+                @endif
+
+                <form method="POST" action="{{ route('password.email') }}">
+                    @csrf
+
                     <p>パスワードをリセットするには、メールアドレスを入力してください。</p>
-                    <input type="text" name="email" placeholder="メールアドレス" autocomplete="off" class="form-control placeholder-no-fix">
-                </div>
-                <div class="modal-footer">
-                    <button data-dismiss="modal" class="btn btn-default" type="button">キャンセル</button>
-                    <button class="btn btn-theme" type="button">送信</button>
-                </div>
+                    <input type="text" name="email" placeholder="メールアドレス" autocomplete="email" value="{{ old('email') }}" class="form-control placeholder-no-fix">
+
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default" type="button">キャンセル</button>
+                        <button class="btn btn-theme" type="submit">送信</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -81,11 +81,9 @@
 
                         <hr>
 
-                        @if (Route::has('password.request'))
-                        <a class="" href="{{ route('password.request') }}">
+                        <a href="{{ route('password.request')}}">
                             {{ __('パスワードをお忘れの場合') }}
                         </a>
-                        @endif
                     </div>
 
                     <div class="login-social-link centered">
@@ -104,26 +102,6 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div aria-hidden=" true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">パスワードをお忘れですか?</h4>
-                </div>
-                <div class="modal-body">
-                    <p>パスワードをリセットするには、メールアドレスを入力してください。</p>
-                    <input type="text" name="email" placeholder="メールアドレス" autocomplete="off" class="form-control placeholder-no-fix">
-                </div>
-                <div class="modal-footer">
-                    <button data-dismiss="modal" class="btn btn-default" type="button">キャンセル</button>
-                    <button class="btn btn-theme" type="button">送信</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- modal -->
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="{{ asset('/js/framework/jquery.min.js') }}"></script>

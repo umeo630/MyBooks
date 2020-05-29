@@ -22,7 +22,7 @@
             <aside class="mid-side">
                 <div class="chat-room-head2">
                     <h2>{{$article->article_title}}</h2>
-                    <a href="#" class="pull-right btn btn-md btn-theme02"><i class="fa fa-star"> お気に入り</i></a>
+                    <article-favorite></article-favorite>
                     <h3><a href="#">ユーザー名</a></h3>
                 </div>
                 <div class="room-desk">

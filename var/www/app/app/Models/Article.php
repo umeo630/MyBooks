@@ -69,4 +69,9 @@ class Article extends Model
         //記事を投稿したユーザー情報を取得
         return $this->belongsTo('App\User');
     }
+
+    public function favorites()
+    {
+        return $this->belongsToMany('App\User', 'favorites');
+    }
 }

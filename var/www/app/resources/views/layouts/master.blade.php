@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keyword" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <!-- Favicons -->
     <link href="{{ asset('img/framework/favicon.png') }}" rel="icon">
@@ -41,6 +42,7 @@
   ======================================================= -->
 
     <!-- Common JS-->
+    <script src="{{ mix('js/app.js')}}"></script>
     <script src="{{ asset('/js/framework/jquery.min.js') }}"></script>
     <script src="{{ asset('/js/framework/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/js/framework/jquery.dcjqaccordion.2.7.js') }}"></script>
@@ -48,6 +50,6 @@
     <script src="{{ asset('/js/framework/jquery.nicescroll.js') }}"></script>
     <script src="{{ asset('/js/framework/common-scripts.js') }}"></script>
 
-    <script src="{{ mix('js/app.js')}}"></script>
+
 </body>
 </html>

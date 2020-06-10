@@ -17,9 +17,7 @@ class CreateFavoritesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('article_id');
-            $table->Integer('favorite');
-            $table->date('create_at');
-            $table->date('update_at')->nullable();
+            $table->Integer('favorite')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
             $table->timestamps();

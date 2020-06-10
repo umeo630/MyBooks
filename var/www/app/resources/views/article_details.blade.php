@@ -13,17 +13,14 @@
                 <div class="room-desk2">
                     <img src="/img/framework/login-bg.jpg" alt="" width="100%" height="auto">
                     <div class="invite-row2">
-                        <div class="invite-row2-content centered">
-                            <p><i class="fa fa-star"></i> 150</p>
-                        </div>
+                        <article-favorite :initial-is-favorited-by='@json($article->isFavoritedBy(Auth::user()))' :initial-count-favorites='@json($article->count_favorites)' :authorized='@json(Auth::check())' endpoint="{{ route('article.favorite', ['id' => $article->id]) }}"></article-favorite>
                     </div>
                 </div>
             </aside>
             <aside class="mid-side">
                 <div class="chat-room-head2">
                     <h2>{{$article->article_title}}</h2>
-                    <a href="#" class="pull-right btn btn-md btn-theme02"><i class="fa fa-star"> お気に入り</i></a>
-                    <h3><a href="#">ユーザー名</a></h3>
+                    <h3><a href="#">{{$article->user->name}}</a></h3>
                 </div>
                 <div class="room-desk">
                     <h3>読んだ本：{{$article->book_title}}</h3>

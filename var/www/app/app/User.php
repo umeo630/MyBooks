@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\PasswordResetNotification;
+use App\Models\Article;
 
 class User extends Authenticatable
 {
@@ -47,5 +48,11 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new PasswordResetNotification($token));
+    }
+
+    public function favorites()
+    {
+        //お気に入りテーブルリレーション
+        return $this->belongsToMany('App\Models\Article', 'favorites')->withTimestamps();
     }
 }

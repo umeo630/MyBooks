@@ -25,7 +25,10 @@ Route::post('/article', 'ArticleController@articleStore')->name('article.store')
 Route::post('/article/update/{id}', 'ArticleController@articleUpdate')->name('article.update');
 //記事削除処理
 Route::post('/article/delete', 'ArticleController@articleDestroy')->name('article.delete');
-
+//お気に入り処理
+Route::put('/article/{id}/favorite', 'ArticleController@articleFavorite')->name('article.favorite');
+//お気に入り解除処理
+Route::delete('/article/{id}/favorite', 'ArticleController@articleUnFavorite')->name('article.unfavorite');
 
 //ユーザーページ
 Route::get('/user', 'UserController@userPage');

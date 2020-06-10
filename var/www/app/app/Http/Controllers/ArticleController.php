@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -26,7 +27,7 @@ class ArticleController extends Controller
     function articleDetails(Request $request, Article $article)
     {
         //取得したidでフィルタ
-        $article = DB::table('articles')->find($request->id);
+        $article = Article::find($request->id);
 
         //article_details表示、＄articleを渡す
         return view('article_details', ['article' => $article]);
@@ -83,5 +84,39 @@ class ArticleController extends Controller
         Article::find($request->id)->delete();
 
         return redirect()->route('article.register');
+    }
+
+
+    //お気に入り処理
+    function articleFavorite(Request $request, Article $article)
+    {
+        //削除処理を始めに行い、二重お気に入りを防止
+        $article = Article::find($request->id);
+
+        $article->favorites()->detach($request->user()->id);
+        $article->favorites()->attach($request->user()->id);
+
+
+
+        return [
+            'id' => $article->id,
+            'countFavorites' => $article->count_favorites,
+        ];
+    }
+
+    //お気に入り解除処理
+    function articleUnfavorite(Request $request, Article $article)
+    {
+        //削除処理を始めに行い、二重お気に入りを防止
+        $article = Article::find($request->id);
+
+
+        $article->favorites()->detach($request->user()->id);
+
+
+        return [
+            'id' => $article->id,
+            'countFavorites' => $article->count_favorites,
+        ];
     }
 }

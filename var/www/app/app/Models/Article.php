@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DB;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -67,6 +68,29 @@ class Article extends Model
     public function user()
     {
         //記事を投稿したユーザー情報を取得
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
+    }
+
+    public function favorites()
+    {
+        //お気に入りテーブルリレーション
+        return $this->belongsToMany(User::class, 'favorites')->withTimestamps();
+    }
+
+
+    //あるユーザーがいいね済かどうかを判定
+    //引数がnullであっても許容
+    public function isFavoritedBy(?User $user)
+    {    //記事をいいねしたユーザーの中に引数として渡した＄userがいればtrueを返す
+
+        return $user
+            ? (bool) $this->favorites->where('id', $user->id)->count()
+            : false;
+    }
+
+    //いいね数を算出
+    public function getCountFavoritesAttribute()
+    {
+        return $this->favorites->count();
     }
 }

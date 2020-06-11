@@ -55,4 +55,10 @@ class User extends Authenticatable
         //お気に入りテーブルリレーション
         return $this->belongsToMany('App\Models\Article', 'favorites')->withTimestamps();
     }
+
+    public function followers()
+    {
+        //フォローテーブルリレーション
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'follower_id')->withTimestamps();
+    }
 }

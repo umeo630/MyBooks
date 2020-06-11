@@ -11,9 +11,9 @@
             <div class="list-group mt">
                 @foreach ($articles as $article)
                 <div class="list-group-main mt col-lg-4 col-md-4 col-sm-4">
-                    <i class="fa fa-user-circle fa-3x mr-1"></i>
+                    <a href="{{ route('user.show',[$article->user->name])}}"><i class="fa fa-user-circle fa-3x mr-1"></i></a>
                     <div class="font-weight-bold">
-                        <a href="" class="user-name">{{$article->user->name}}</a>
+                        <a href="{{ route('user.show',[$article->user->name])}}" class="user-name">{{$article->user->name}}</a>
                     </div>
                     <a href="{{ route('article.details',[$article->id])}}" class="list-group-item flex-column align-items-start text-center">
                         <div class="d-flex justify-content-between">

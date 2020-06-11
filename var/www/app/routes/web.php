@@ -31,6 +31,7 @@ Route::put('/article/{id}/favorite', 'ArticleController@articleFavorite')->name(
 Route::delete('/article/{id}/favorite', 'ArticleController@articleUnFavorite')->name('article.unfavorite');
 
 //ユーザーページ
-Route::get('/user', 'UserController@userPage');
+Route::get('/user/{name}', 'UserController@userPage')->name('user.show');
+
 
 Auth::routes();

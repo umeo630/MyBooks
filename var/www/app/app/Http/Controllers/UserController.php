@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     // ユーザー情報画面
-    function userPage()
+    function userPage(string $name)
     {
-        return view('user');
+        //ユーザーの名前を取得
+        $user = User::where('name', $name)->first();
+
+        return view('user_show', ['user' => $user]);
     }
     //ログイン
     function userLogin()

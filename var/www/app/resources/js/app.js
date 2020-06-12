@@ -31,10 +31,12 @@ Vue.component(
 import "./bootstrap";
 import Vue from "vue";
 import ArticleFavorite from "./components/ArticleFavorite";
+import FollowButton from "./components/FollowButton";
 
 const app = new Vue({
     el: "#app",
     components: {
-        ArticleFavorite
+        ArticleFavorite,
+        FollowButton
     }
 });

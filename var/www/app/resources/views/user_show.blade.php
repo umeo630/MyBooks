@@ -18,7 +18,6 @@
                     <div class="col-md-4 centered">
                         <div class="profile-pic">
                             <a href="{{ route('user.show',['name' => $user->name])}}"><img src="img/ui-sam.jpg" class="img-circle"></a>
-                            <p><button class="btn btn-theme"><i class="fa fa-check"></i> フォロー</button></p>
                         </div>
                     </div>
                     <div class="col-md-4 profile-text">
@@ -28,14 +27,15 @@
                     </div>
                     <!-- /col-md-4 -->
                     <div class="col-md-4 profile-text mt mb centered">
-                        <div class="right-divider hidden-sm hidden-xs">
-                            <h4>1922</h4>
-                            <h6>FOLLOWERS</h6>
-                            <h4>290</h4>
-                            <h6>FOLLOWING</h6>
-                            <h4>$ 13,980</h4>
-                            <h6>MONTHLY EARNINGS</h6>
-                        </div>
+                        @if (Auth::id() !== $user->id)
+                        <follow-button class="ml-auto" :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'></follow-button>
+                        @endif
+                        <h4>1922</h4>
+                        <h6>FOLLOWERS</h6>
+                        <h4>290</h4>
+                        <h6>FOLLOWING</h6>
+                        <h4>$ 13,980</h4>
+                        <h6>MONTHLY EARNINGS</h6>
                     </div>
                     <!-- /col-md-4 -->
                 </div>

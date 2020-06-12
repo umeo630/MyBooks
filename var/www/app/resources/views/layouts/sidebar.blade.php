@@ -2,14 +2,14 @@
     <div id="sidebar" class="nav-collapse ">
         <ul class="sidebar-menu" id="nav-accordion">
             <p class="centered"><a href="profile.html"></a></p>
-            <h5 class="centered">ログインユーザー名</h5>
+            <h5 class="centered">{{Auth::user()->name}}</h5>
             <li class="mt">
                 <a href="/">
                     <i class="fa fa-dashboard"></i>
                     <span>マイページ</span>
                 </a>
             </li>
-        <!--- 
+            <!---
             <li class="sub-menu">
                 <a href="javascript:;">
                     <i class="fa fa-comments-o"></i>

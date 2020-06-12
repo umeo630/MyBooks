@@ -30,12 +30,10 @@
                         @if (Auth::id() !== $user->id)
                         <follow-button class="ml-auto" :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))' :authorized='@json(Auth::check())' endpoint="{{ route('user.follow', ['name' => $user->name])}}"></follow-button>
                         @endif
-                        <h4>1922</h4>
-                        <h6>FOLLOWERS</h6>
-                        <h4>290</h4>
-                        <h6>FOLLOWING</h6>
-                        <h4>$ 13,980</h4>
-                        <h6>MONTHLY EARNINGS</h6>
+                        <h4>{{ $user->count_followers}}</h4>
+                        <h6>フォロワー数</h6>
+                        <h4>{{ $user->count_followings}}</h4>
+                        <h6>フォロー数</h6>
                     </div>
                     <!-- /col-md-4 -->
                 </div>

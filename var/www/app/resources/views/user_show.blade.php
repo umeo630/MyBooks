@@ -28,7 +28,7 @@
                     <!-- /col-md-4 -->
                     <div class="col-md-4 profile-text mt mb centered">
                         @if (Auth::id() !== $user->id)
-                        <follow-button class="ml-auto" :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'></follow-button>
+                        <follow-button class="ml-auto" :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))' :authorized='@json(Auth::check())' endpoint="{{ route('user.follow', ['name' => $user->name])}}"></follow-button>
                         @endif
                         <h4>1922</h4>
                         <h6>FOLLOWERS</h6>

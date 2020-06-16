@@ -39,15 +39,19 @@
         <div class="chat-room">
             <aside class="right-side">
                 <div class="invite-row3 text-center">
-                    <h4>ユーザー名の他の記事</h4>
+                    <h4>{{$article->user->name}} さんの他の記事</h4>
                 </div>
                 <ul class="chat-available-user">
+                    @foreach ($user_articles as $user_article)
+                    @if($user_article->id !== $article->id)
                     <li>
-                        <a href="chat_room.html">
+                        <a href="{{ route('article.details',[$user_article->id])}}">
                             <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">
-                            記事タイトル
+                            {{$user_article->article_title}}
                         </a>
                     </li>
+                    @endif
+                    @endforeach
                     <li>
                         <a href="chat_room.html">
                             <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">

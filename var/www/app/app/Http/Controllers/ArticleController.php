@@ -29,8 +29,13 @@ class ArticleController extends Controller
         //取得したidでフィルタ
         $article = Article::find($request->id);
 
+        //$articleのユーザーの記事を全て取得
+        $user = User::where('id', $article->user_id)->first();
+
+        $user_articles = $user->articles;
+
         //article_details表示、＄articleを渡す
-        return view('article_details', ['article' => $article]);
+        return view('article_details', ['article' => $article, 'user_articles' => $user_articles]);
     }
 
     //マイ記事管理画面

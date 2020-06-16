@@ -50,9 +50,46 @@ class User extends Authenticatable
         $this->notify(new PasswordResetNotification($token));
     }
 
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
     public function favorites()
     {
         //お気に入りテーブルリレーション
-        return $this->belongsToMany('App\Models\Article', 'favorites')->withTimestamps();
+        return $this->belongsToMany(Article::class, 'favorites')->withTimestamps();
+    }
+
+    public function followers()
+    {
+        //フォロワーにアクセス
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'follower_id')->withTimestamps();
+    }
+
+    public function followings()
+    {
+        //フォローするためのアクセス
+        return $this->belongsToMany(User::class, 'follows', 'follower_id', 'user_id')->withTimestamps();
+    }
+
+    //フォロー中かどうかを判定する
+    public function isFollowedBy(?User $user)
+    {
+        return $user
+            ? (bool) $this->followers->where('id', $user->id)->count()
+            : false;
+    }
+
+    //フォロワーの数
+    public function getCountFollowersAttribute()
+    {
+        return $this->followers->count();
+    }
+
+    //フォローしている人の数
+    public function getCountFollowingsAttribute()
+    {
+        return $this->followings->count();
     }
 }

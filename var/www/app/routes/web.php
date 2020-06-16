@@ -26,11 +26,15 @@ Route::post('/article/update/{id}', 'ArticleController@articleUpdate')->name('ar
 //記事削除処理
 Route::post('/article/delete', 'ArticleController@articleDestroy')->name('article.delete');
 //お気に入り処理
-Route::put('/article/{id}/favorite', 'ArticleController@articleFavorite')->name('article.favorite');
+Route::put('/article/{id}/favorite', 'ArticleController@articleFavorite')->name('article.favorite')->middleware('auth');
 //お気に入り解除処理
-Route::delete('/article/{id}/favorite', 'ArticleController@articleUnFavorite')->name('article.unfavorite');
+Route::delete('/article/{id}/favorite', 'ArticleController@articleUnFavorite')->name('article.unfavorite')->middleware('auth');
 
 //ユーザーページ
-Route::get('/user', 'UserController@userPage');
+Route::get('/user/{name}', 'UserController@userPage')->name('user.show');
+//フォロー処理
+Route::put('/user/{name}/follow', 'UserController@userFollow')->name('user.follow')->middleware('auth');
+//フォロー解除処理
+Route::delete('/user/{name}/follow', 'UserController@userUnfollow')->name('user.follow')->middleware('auth');
 
 Auth::routes();

@@ -50,10 +50,15 @@ class User extends Authenticatable
         $this->notify(new PasswordResetNotification($token));
     }
 
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
     public function favorites()
     {
         //お気に入りテーブルリレーション
-        return $this->belongsToMany('App\Models\Article', 'favorites')->withTimestamps();
+        return $this->belongsToMany(Article::class, 'favorites')->withTimestamps();
     }
 
     public function followers()

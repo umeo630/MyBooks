@@ -20,7 +20,7 @@
             <aside class="mid-side">
                 <div class="chat-room-head2">
                     <h2>{{$article->article_title}}</h2>
-                    <h3><a href="#">{{$article->user->name}}</a></h3>
+                    <h3><a href="{{ route('user.show',[$article->user->name])}}">{{$article->user->name}}</a></h3>
                 </div>
                 <div class="room-desk">
                     <h3>読んだ本：{{$article->book_title}}</h3>
@@ -52,30 +52,6 @@
                     </li>
                     @endif
                     @endforeach
-                    <li>
-                        <a href="chat_room.html">
-                            <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">
-                            記事タイトル
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat_room.html">
-                            <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">
-                            記事タイトル
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat_room.html">
-                            <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">
-                            記事タイトル
-                        </a>
-                    </li>
-                    <li>
-                        <a href="chat_room.html">
-                            <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">
-                            記事タイトル
-                        </a>
-                    </li>
                 </ul>
             </aside>
             <aside class="mid-side">

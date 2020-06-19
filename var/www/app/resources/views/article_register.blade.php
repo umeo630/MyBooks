@@ -63,7 +63,7 @@
                 <h4 class="title">マイ記事一覧</h4>
                 @foreach ($articles as $article)
                 <div class="list-group col-lg-4 col-md-4 col-sm-4 text-center">
-                    <a class="list-group-item flex-column align-items-start" data-toggle="modal" data-target="#modal-edit-{{$article->id}}">
+                    <a href="#" class="list-group-item flex-column align-items-start" data-toggle="modal" data-target="#modal-edit-{{$article->id}}">
                         <div class="d-flex justify-content-between">
                             <h5 class="mb-1">{{ $article->article_title}}</h5>
                             <p class="mb-1"><small>{{ $article->create_at}}</small></p><img src="{{asset($article->url)}}" width="100" height="150">
@@ -128,7 +128,7 @@
                         </div>
                     </div>
                     <div class="modal" id="modal-delete-{{$article->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog　modal-dialog-centerd" 　 role="document">
+                        <div class="modal-dialog　modal-dialog-centerd" role="document">
                             <div class="modal-content2">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

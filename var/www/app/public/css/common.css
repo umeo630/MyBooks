@@ -32,25 +32,20 @@
     -webkit-border-radius: 4px;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
     /* Safari and Chrome */
     .dropdown-menu.extended {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.176) !important;
     }
-    ;
 }
 
 .article-list {
     float: left;
 }
 
-.user-name {
-    color: #fff;
-}
-
 .article-head {
-    background: #4ECDC4;
-    color: #FFFFFF;
+    background: #4ecdc4;
+    color: #ffffff;
     min-height: 70px;
     padding: 15px;
     width: 100%;
@@ -94,11 +89,11 @@
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     border: 1px solid #999;
-    border: 1px solid rgba(0, 0, 0, .2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 6px;
     outline: 0;
-    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-    box-shadow: 0 3px 9px rgba(0, 0, 0, .5)
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
 }
 
 .chat-room-head2 {
@@ -149,9 +144,53 @@
 }
 
 .invite-row3 {
-    background-color: #4ECDC4;
+    background-color: #4ecdc4;
     color: #fff;
     padding: 6px 10px;
     display: inline-block;
     width: 100%;
+}
+
+.content-panel2 {
+    background: #ffffff;
+    box-shadow: 0px 3px 2px #aab2bd;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.content-panel2 h4 {
+    margin-left: 10px;
+}
+
+.profile-text2 h6 {
+    display: inline-block;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.profile-text2 h6 span {
+    color: #48cfad;
+}
+
+.profile-text2 h3 {
+    font-weight: 700;
+    color: #48cfad;
+}
+
+.profile-text2 h4 {
+    display: inline-block;
+    color: #48cfad;
+}
+
+.profile-text2 h4 span {
+    color: #d3d3d3;
+}
+
+.profile-text2 p {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.profile-pic {
+    margin-top: 20px;
 }

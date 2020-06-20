@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -57,6 +58,13 @@ class UserController extends Controller
         $request->user()->followings()->detach($user);
 
         return ['name' => $name];
+    }
+
+    function userInfo()
+    {
+        $auth = Auth::user();
+
+        return view('user_info', ['auth' => $auth]);
     }
 
     //ログイン

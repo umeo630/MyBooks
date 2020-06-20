@@ -36,5 +36,8 @@ Route::get('/user/{name}', 'UserController@userPage')->name('user.show');
 Route::put('/user/{name}/follow', 'UserController@userFollow')->name('user.follow')->middleware('auth');
 //フォロー解除処理
 Route::delete('/user/{name}/follow', 'UserController@userUnfollow')->name('user.follow')->middleware('auth');
+//ユーザー情報ページ
+Route::get('/user/{name}/info', 'UserController@userInfo')->name('user.info')->middleware('auth');
+
 
 Auth::routes();

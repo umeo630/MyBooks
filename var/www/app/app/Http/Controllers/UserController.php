@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    // ユーザー情報画面
+    // ユーザー画面
     function userPage(string $name)
     {
         //ユーザーの名前を取得
@@ -57,6 +58,58 @@ class UserController extends Controller
         $request->user()->followings()->detach($user);
 
         return ['name' => $name];
+    }
+
+    //アカウント情報画面
+    function userInfo()
+    {
+        $auth = Auth::user();
+
+        return view('user_info', ['auth' => $auth]);
+    }
+
+    //アカウント名編集画面
+    function userEdit()
+    {
+        $auth = Auth::user();
+
+        return view('user_edit', ['auth' => $auth]);
+    }
+
+    //アカウント名更新処理
+    function userUpdate(Request $request)
+    {
+        $auth = User::find(Auth::user()->id);
+
+        $form = $request->all();
+
+        unset($form['_token']);
+
+        $auth->fill($form)->save();
+
+        return redirect()->route('user.info', ['name' => $auth->name]);
+    }
+
+    //メールアドレス変更ページ
+    function userEmailEdit()
+    {
+        $auth = Auth::user();
+
+        return view('email_edit', ['auth' => $auth]);
+    }
+
+    //メールアドレス更新処理
+    function userEmailUpdate(Request $request)
+    {
+        $auth = User::find(Auth::user()->id);
+
+        $form = $request->all();
+
+        unset($form['_token']);
+
+        $auth->fill($form)->save();
+
+        return redirect()->route('user.info', ['name' => $auth->name]);
     }
 
     //ログイン

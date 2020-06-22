@@ -36,5 +36,17 @@ Route::get('/user/{name}', 'UserController@userPage')->name('user.show');
 Route::put('/user/{name}/follow', 'UserController@userFollow')->name('user.follow')->middleware('auth');
 //フォロー解除処理
 Route::delete('/user/{name}/follow', 'UserController@userUnfollow')->name('user.follow')->middleware('auth');
+//ユーザー情報ページ
+Route::get('/user/{name}/info', 'UserController@userInfo')->name('user.info')->middleware('auth');
+//ユーザー名編集ページ
+Route::get('/user/{name}/edit', 'UserController@userEdit')->name('user.edit')->middleware('auth');
+//ユーザー名更新処理
+Route::post('/user/{name}/update', 'UserController@userUpdate')->name('user.update');
+//メールアドレス変更ページ
+Route::get('/user/{name}/email', 'UserController@userEmailEdit')->name('email.edit')->middleware('auth');
+//メールアドレス更新処理
+Route::post('/user/{name}/email/update', 'UserController@userEmailUpdate')->name('email.update');
+
+
 
 Auth::routes();

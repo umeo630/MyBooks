@@ -10,7 +10,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">パスワードをお忘れですか?</h4>
+                    <h4 class="modal-title">パスワード変更</h4>
                 </div>
                 <div class="modal-body">
                     @if (session('status'))
@@ -22,7 +22,7 @@
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 
-                        <p>パスワードをリセットするには、メールアドレスを入力してください。</p>
+                        <p>パスワードを変更するには、メールアドレスを入力してください。</p>
                         <div class="form-group">
                             <input type="text" name="email" placeholder="メールアドレス" autocomplete="email" value="{{ old('email') }}" class="form-control placeholder-no-fix">
 

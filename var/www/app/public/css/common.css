@@ -194,3 +194,20 @@
 .profile-pic {
     margin-top: 20px;
 }
+
+.ds a {
+    color: #797979;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.main-chart2 {
+    padding: 20px;
+}
+
+.form-footer {
+    padding: 0 15px;
+    text-align: right;
+}

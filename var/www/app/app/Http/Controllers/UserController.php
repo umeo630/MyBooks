@@ -90,6 +90,15 @@ class UserController extends Controller
         return redirect()->route('user.info', ['name' => $auth->name]);
     }
 
+    //メールアドレス変更ページ
+    function userEmailEdit()
+    {
+        $auth = Auth::user();
+
+        return view('email_edit', ['auth' => $auth]);
+    }
+
+
     //ログイン
     function userLogin()
     {

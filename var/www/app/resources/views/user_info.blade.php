@@ -61,7 +61,7 @@
                     </div>
                 </a>
                 <!-- Second Activity -->
-                <a href="#">
+                <a href="{{ route('email.edit', ['name' => $auth->name])}}">
                     <div class="desc">
                         <div class="thumb">
                             <span class="badge bg-theme"><i class="fa fa-envelope"></i></span>

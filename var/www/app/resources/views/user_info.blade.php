@@ -82,17 +82,6 @@
                         </div>
                     </div>
                 </a>
-                <!-- Fourth Activity -->
-                <a href="#">
-                    <div class="desc">
-                        <div class="thumb">
-                            <span class="badge bg-theme"><i class="fa fa-facebook"></i></span>
-                        </div>
-                        <div class="details">
-                            ソーシャル連携
-                        </div>
-                    </div>
-                </a>
             </div>
             <!-- /col-lg-3 -->
         </div>

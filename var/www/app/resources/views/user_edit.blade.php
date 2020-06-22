@@ -16,7 +16,13 @@
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">名前</label>
                             <div class="col-sm-10">
-                                <input type="text" name="name" class="form-control" 　value="{{$auth->name ?? old('name')}}">
+                                <input id="name" type="text" class="form-control @error ('name') is-invalid @enderror" name="name" value="{{ $auth->name ?? old('name') }}" required autofocus autocomplete="name">
+
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-footer">

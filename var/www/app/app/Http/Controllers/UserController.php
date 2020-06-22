@@ -98,6 +98,19 @@ class UserController extends Controller
         return view('email_edit', ['auth' => $auth]);
     }
 
+    //メールアドレス更新処理
+    function userEmailUpdate(Request $request)
+    {
+        $auth = User::find(Auth::user()->id);
+
+        $form = $request->all();
+
+        unset($form['_token']);
+
+        $auth->fill($form)->save();
+
+        return redirect()->route('user.info', ['name' => $auth->name]);
+    }
 
     //ログイン
     function userLogin()

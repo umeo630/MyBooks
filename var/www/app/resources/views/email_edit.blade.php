@@ -16,7 +16,13 @@
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">メールアドレス</label>
                             <div class="col-sm-10">
-                                <input type="text" name="email" class="form-control" 　value="{{$auth->email ?? old('email')}}">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-footer">

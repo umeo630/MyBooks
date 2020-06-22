@@ -44,6 +44,8 @@ Route::get('/user/{name}/edit', 'UserController@userEdit')->name('user.edit')->m
 Route::post('/user/{name}/update', 'UserController@userUpdate')->name('user.update');
 //メールアドレス変更ページ
 Route::get('/user/{name}/email', 'UserController@userEmailEdit')->name('email.edit')->middleware('auth');
+//メールアドレス更新処理
+Route::post('/user/{name}/email/update', 'UserController@userEmailUpdate')->name('email.update');
 
 
 

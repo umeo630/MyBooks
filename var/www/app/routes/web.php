@@ -38,6 +38,11 @@ Route::put('/user/{name}/follow', 'UserController@userFollow')->name('user.follo
 Route::delete('/user/{name}/follow', 'UserController@userUnfollow')->name('user.follow')->middleware('auth');
 //ユーザー情報ページ
 Route::get('/user/{name}/info', 'UserController@userInfo')->name('user.info')->middleware('auth');
+//ユーザー名編集ページ
+Route::get('/user/{name}/edit', 'UserController@userEdit')->name('user.edit')->middleware('auth');
+//ユーザー名更新処理
+Route::post('/user/{name}/update', 'UserController@userUpdate')->name('user.update');
+
 
 
 Auth::routes();

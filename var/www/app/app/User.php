@@ -51,7 +51,7 @@ class User extends Authenticatable
     }
 
     public function articles()
-    {
+    {  //記事テーブルリレーション
         return $this->hasMany(Article::class);
     }
 

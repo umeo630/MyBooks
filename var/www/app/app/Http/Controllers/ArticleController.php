@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Comment;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -34,8 +35,15 @@ class ArticleController extends Controller
 
         $user_articles = $user->articles;
 
+        //記事に対するコメントを全て取得
+        $comments = Comment::where('article_id', $article->id)->get()->sortBy('created_at');
+
         //article_details表示、＄articleを渡す
-        return view('article_details', ['article' => $article, 'user_articles' => $user_articles]);
+        return view('article_details', [
+            'article' => $article,
+            'user_articles' => $user_articles,
+            'comments' => $comments
+        ]);
     }
 
     //マイ記事管理画面

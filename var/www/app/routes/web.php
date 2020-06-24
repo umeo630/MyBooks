@@ -49,6 +49,9 @@ Route::post('/user/{name}/email/update', 'UserController@userEmailUpdate')->name
 
 //コメント登録処理
 Route::post('/comment', 'CommentController@commentStore')->name('comment.store');
+//コメント削除処理
+Route::post('/comment/delete', 'CommentController@commentDestroy')->name('comment.delete');
+
 
 
 

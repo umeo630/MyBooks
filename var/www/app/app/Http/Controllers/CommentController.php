@@ -24,7 +24,11 @@ class CommentController extends Controller
         }
     }
 
-    //コメント編集
-
     //コメント削除
+    public function commentDestroy(Request $request)
+    {
+        Comment::find($request->id)->delete();
+
+        return redirect()->route('article.details', ['id' => $request->article_id]);
+    }
 }

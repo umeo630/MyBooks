@@ -55,13 +55,25 @@
             <aside class="mid-side">
                 <div class="chat-room-head2 text-center">
                     <h4>コメント一覧</h4>
-
                 </div>
                 @foreach ($comments as $comment)
                 <div class="group-rom mb">
                     <div class="first-part"><a href="{{ route('user.show',['name' => $comment->user->name])}}">{{$comment->user->name}}</a></div>
-                    <div class="second-part">{{$comment->comment}}</div>
-                    <div class="third-part">{{$comment->created_at}}</div>
+                    <div class="second-part">
+                        {{$comment->comment}}
+                    </div>
+                    <div class="third-part">
+                        @if ($comment->user->id == Auth::user()->id)
+                        <div class="text-right">
+                            <form action="{{ route('comment.delete')}}" 　method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $comment->id}}">
+                                <input type="hidden" name="article_id" value="{{ $comment->article_id}}">
+                                <button type="submit" class="btn btn-sm btn-danger">削除</button>
+                            </form>
+                        </div>
+                        @endif
+                    </div>
                 </div>
                 @endforeach
                 <form action="{{ route('comment.store')}}" method="POST">
@@ -71,7 +83,7 @@
                         <input type="hidden" name="article_id" value="{{ $article->id }}">
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     </div>
-                    <button class="btn btn-theme" type="summit">送信</button>
+                    <button class="btn btn-theme" type="summit">コメントする</button>
                 </form>
         </div>
         </aside>

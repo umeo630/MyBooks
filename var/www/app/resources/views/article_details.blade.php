@@ -65,15 +65,34 @@
                     <div class="third-part">
                         @if ($comment->user->id == Auth::user()->id)
                         <div class="text-right">
-                            <form action="{{ route('comment.delete')}}" 　method="POST">
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $comment->id}}">
-                                <input type="hidden" name="article_id" value="{{ $comment->article_id}}">
-                                <button type="submit" class="btn btn-sm btn-danger">削除</button>
-                            </form>
+                            <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#comment-delete-{{$comment->id}}">削除</a>
                         </div>
-                        @endif
                     </div>
+                    <div class="modal fade" id="comment-delete-{{$comment->id}}" tabindex="-1" role="dialog" aria-labelledby="comment-delete-{{$comment->id}}Label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title" id="comment-delete-{{$comment->id}}Label">コメント削除</h4>
+                                </div>
+                                <form action="{{ route('comment.delete')}}" 　method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $comment->id}}">
+                                    <input type="hidden" name="article_id" value="{{ $comment->article_id}}">
+                                    <div class="modal-body">
+                                        コメントを削除します。よろしいですか？
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                        <a class="btn btn-default" data-dismiss="modal">キャンセル</a>
+                                        <button type="submit" class="btn btn-danger">削除</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
                 </div>
                 @endforeach
                 <form action="{{ route('comment.store')}}" method="POST">
@@ -85,8 +104,7 @@
                     </div>
                     <button class="btn btn-theme" type="summit">コメントする</button>
                 </form>
-        </div>
-        </aside>
+            </aside>
         </div>
     </section>
 </section>

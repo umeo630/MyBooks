@@ -47,6 +47,12 @@ Route::get('/user/{name}/email', 'UserController@userEmailEdit')->name('email.ed
 //メールアドレス更新処理
 Route::post('/user/{name}/email/update', 'UserController@userEmailUpdate')->name('email.update');
 
+//コメント登録処理
+Route::post('/comment', 'CommentController@commentStore')->name('comment.store');
+//コメント削除処理
+Route::post('/comment/delete', 'CommentController@commentDestroy')->name('comment.delete');
+
+
 
 
 Auth::routes();

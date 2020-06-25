@@ -4,6 +4,7 @@ namespace App\Models;
 
 use DB;
 use App\User;
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -92,5 +93,11 @@ class Article extends Model
     public function getCountFavoritesAttribute()
     {
         return $this->favorites->count();
+    }
+
+    //コメントテーブルリレーション
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

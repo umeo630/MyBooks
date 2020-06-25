@@ -34,8 +34,6 @@
                 </div>
             </aside>
         </div>
-
-
         <div class="chat-room">
             <aside class="right-side">
                 <div class="invite-row3 text-center">
@@ -58,50 +56,54 @@
                 <div class="chat-room-head2 text-center">
                     <h4>コメント一覧</h4>
                 </div>
-                <div class="group-rom">
-                    <div class="first-part odd">Sam Soffes</div>
-                    <div class="second-part">Hi Mark, have a minute?</div>
-                    <div class="third-part">12:30</div>
-                </div>
-                <div class="group-rom">
-                    <div class="first-part">Mark Simmons</div>
-                    <div class="second-part">Of course Sam, what you need?</div>
-                    <div class="third-part">12:31</div>
-                </div>
-                <div class="group-rom">
-                    <div class="first-part odd">Sam Soffes</div>
-                    <div class="second-part">I want you examine the new product</div>
-                    <div class="third-part">12:32</div>
-                </div>
-                <div class="group-rom">
-                    <div class="first-part">Mark Simmons</div>
-                    <div class="second-part">Ok, send me the pic</div>
-                    <div class="third-part">12:32</div>
-                </div>
-                <div class="group-rom">
-                    <div class="first-part odd">Sam Soffes</div>
+                @foreach ($comments as $comment)
+                <div class="group-rom mb">
+                    <div class="first-part"><a href="{{ route('user.show',['name' => $comment->user->name])}}">{{$comment->user->name}}</a></div>
                     <div class="second-part">
-                        <a href="#">product.jpg</a> <span class="text-muted">35.4KB</span>
-                        <p><img class="img-responsive" src="img/product.jpg" alt=""></p>
+                        {{$comment->comment}}
                     </div>
-                    <div class="third-part">12:32</div>
-                </div>
-                <div class="group-rom">
-                    <div class="first-part">Mark Simmons</div>
-                    <div class="second-part">Fantastic job, love it :)</div>
-                    <div class="third-part">12:32</div>
-                </div>
-                <div class="group-rom last-group">
-                    <div class="first-part odd">Sam Soffes</div>
-                    <div class="second-part">Thanks!!</div>
-                    <div class="third-part">12:33</div>
-                </div>
-                <footer>
-                    <div class="chat-txt">
-                        <input type="text" class="form-control">
+                    <div class="third-part">
+                        @if ($comment->user->id == Auth::user()->id)
+                        <div class="text-right">
+                            <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#comment-delete-{{$comment->id}}">削除</a>
+                        </div>
                     </div>
-                    <button class="btn btn-theme">送信</button>
-                </footer>
+                    <div class="modal fade" id="comment-delete-{{$comment->id}}" tabindex="-1" role="dialog" aria-labelledby="comment-delete-{{$comment->id}}Label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title" id="comment-delete-{{$comment->id}}Label">コメント削除</h4>
+                                </div>
+                                <form action="{{ route('comment.delete')}}" 　method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $comment->id}}">
+                                    <input type="hidden" name="article_id" value="{{ $comment->article_id}}">
+                                    <div class="modal-body">
+                                        コメントを削除します。よろしいですか？
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                        <a class="btn btn-default" data-dismiss="modal">キャンセル</a>
+                                        <button type="submit" class="btn btn-danger">削除</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                </div>
+                @endforeach
+                <form action="{{ route('comment.store')}}" method="POST">
+                    @csrf
+                    <div class="chat-txt text-right">
+                        <input type="text" class="form-control" name="comment">
+                        <input type="hidden" name="article_id" value="{{ $article->id }}">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    </div>
+                    <button class="btn btn-theme" type="summit">コメントする</button>
+                </form>
             </aside>
         </div>
     </section>

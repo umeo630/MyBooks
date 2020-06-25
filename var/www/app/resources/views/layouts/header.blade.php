@@ -3,7 +3,7 @@
         <div class="fa fa-bars tooltips" data-placement="right"></div>
     </div>
     <a href="{{ route('article.list')}}" class="logo"><b>My<span>Books</span></b></a>
-    <div class="nav notify-row" id="top_menu">
+    <!-- <div class="nav notify-row" id="top_menu">
         <ul class="nav top-menu">
             <li id="header_inbox_bar" class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
@@ -35,7 +35,7 @@
                 </ul>
             </li>
         </ul>
-    </div>
+    </div> -->
     <div class="top-menu">
         <ul class="nav pull-right top-menu">
             @auth

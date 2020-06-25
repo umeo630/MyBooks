@@ -25,7 +25,7 @@
 <body>
     <!--ヘッダー-->
     <header class="header black-bg">
-        <a href="index.html" class="logo"><b>BOOK<span>HISTORY</span></b></a>
+        <a href="index.html" class="logo"><b>MY<span>BOOKS</span></b></a>
     </header>
 
     <!-- **********************************************************************************************************************************************************
@@ -88,11 +88,11 @@
 
                     <div class="password_forget">
                         <hr>
-                        <div class="register-social-link centered">
+                        <!--  <div class="register-social-link centered">
                             <p>SNS経由で登録する場合はこちら</p>
                             <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
                             <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
-                        </div>
+                        </div> -->
                         <div class="registration">
                             ログインはこちら<br />
                             <a class="" href="login">

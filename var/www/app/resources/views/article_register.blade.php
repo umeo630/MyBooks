@@ -159,9 +159,8 @@
                             </div>
                         </div>
                     </div>
-            </div>
-            </body>
-            @endforeach
+                </body>
+                @endforeach
     </section>
     <!-- /wrapper -->
 </section>

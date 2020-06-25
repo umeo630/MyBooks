@@ -63,14 +63,24 @@
                 <h4 class="title">マイ記事一覧</h4>
                 @foreach ($articles as $article)
                 <div class="list-group col-lg-4 col-md-4 col-sm-4 text-center">
-                    <a href="#" class="list-group-item flex-column align-items-start" data-toggle="modal" data-target="#modal-edit-{{$article->id}}">
+                    <div class="list-group-item flex-column align-items-start">
                         <div class="d-flex justify-content-between">
+                            <div class="dropdown text-right">
+                                <button type="button" class="btn btn-link" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                    <a href="#!" class="dropdown-item" data-toggle="modal" data-target="#modal-edit-{{$article->id}}"> <i class="fa fa-edit"></i> 記事を更新する</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#!" class="dropdown-item" data-toggle="modal" data-target="#modal-delete-{{$article->id}}"> <i class="fa fa-trash-o"></i> 記事を削除する</a>
+                                </div>
+                            </div>
                             <h5 class="mb-1">{{ $article->article_title}}</h5>
                             <p class="mb-1"><small>{{ $article->create_at}}</small></p><img src="{{asset($article->url)}}" width="100" height="150">
                             <p class=" mb-1">{{ $article->book_title}}</p>
                             <small>{{ $article->book_content}}</small>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 @endforeach
 
@@ -78,7 +88,7 @@
                 <!--modalArticleEdit-->
                 @foreach ($articles as $article)
                 <body>
-                    <div class="modal" id="modal-edit-{{$article->id}}" tabindex="-1" role="dialog" aria-labelledby="modalArticleEditLabel" aria-hidden="true">
+                    <div class="modal fade" id="modal-edit-{{$article->id}}" tabindex="-1" role="dialog" aria-labelledby="modalArticleEditLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content2">
                                 <div class="modal-header">
@@ -120,21 +130,20 @@
                                         </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <a data-toggle="modal" data-target="#modal-delete-{{$article->id}}" class="btn btn-danger">削除</a>
                                     <button type="submit" class="btn btn-primary">保存</button>
                                 </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <div class="modal" id="modal-delete-{{$article->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog　modal-dialog-centerd" role="document">
+                    <div class="modal fade" id="modal-delete-{{$article->id}}" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="modalArticleDeleteLabel">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content2">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                    <h4 class="modal-title" id="modalArticleEditLabel">マイ記事削除</h4>
+                                    <h4 class="modal-title" id="modalArticleDeleteLabel">マイ記事削除</h4>
                                 </div>
                                 <form method="POST" action="{{ route('article.delete')}}">
                                     @csrf

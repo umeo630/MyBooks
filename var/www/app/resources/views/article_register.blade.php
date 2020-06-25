@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group">
                         <label class="mt-3">価格：</label>
-                        <input type="number" class="form-control" name="price" placeholder="価格を記入してください。">
+                        <input type="number" class="form-control" name="book_price" placeholder="価格を記入してください。">
                     </div>
                     <div class="form-group">
                         <label class="mt-3">サムネイル：</label>
@@ -118,7 +118,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="mt-3">価格：</label>
-                                            <input type="number" class="form-control" name="price" placeholder="価格を記入してください。" 　value="{{ $article->price ?? old('price')}}">
+                                            <input type="number" class="form-control" name="price" placeholder="価格を記入してください。" 　value="{{ $article->book_price ?? old('book_price')}}">
                                         </div>
                                         <div class="form-group">
                                             <label class="mt-3">サムネイル：</label>

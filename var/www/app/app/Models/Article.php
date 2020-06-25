@@ -33,6 +33,7 @@ class Article extends Model
         $book_title = $request->book_title;
         $book_content = $request->book_content;
         $read_at = $request->read_at;
+        $book_price = $request->book_price;
         $book_evaluation = $request->book_evaluation;
 
         // 画像アッピロードに成功しているか確認
@@ -48,12 +49,12 @@ class Article extends Model
         }
 
         // sql用のvalue
-        $values = array($user_id, $article_title, $book_title, $book_content, $read_at, $book_evaluation, $url, 0, 0);
+        $values = array($user_id, $article_title, $book_title, $book_content, $read_at, $book_price, $book_evaluation, $url, 0, 0);
 
         // 実行sqlの作成
         $sql = 'INSERT INTO articles';
-        $sql .= '          ( user_id, article_title, book_title, book_content, read_at, book_evaluation, url, display_flg, delete_flg, create_at )';
-        $sql .= '   VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, now() )';
+        $sql .= '          ( user_id, article_title, book_title, book_content, read_at, book_price, book_evaluation, url, display_flg, delete_flg, create_at )';
+        $sql .= '   VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now() )';
 
         // insert文の実行
         $result = DB::insert($sql, $values);

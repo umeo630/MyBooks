@@ -82,8 +82,41 @@
                         </div>
                     </div>
                 </a>
+                <a href="#!" data-toggle="modal" data-target="#user-delete-{{$auth->id}}">
+                    <div class="desc">
+                        <div class="thumb">
+                            <span class="badge bg-theme"><i class="fa fa-warning"></i></span>
+                        </div>
+                        <div class="details">
+                            アカウント削除
+                        </div>
+                    </div>
+                </a>
             </div>
             <!-- /col-lg-3 -->
+        </div>
+        <div class="modal fade" id="user-delete-{{$auth->id}}" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="modalUserDeleteLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content2">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="UserDeleteLabel">アカウント削除</h4>
+                    </div>
+                    <form method="POST" action="{{ route('user.delete' ,['name' => $auth->name])}}">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{$auth->id}}">
+                        <div class="modal-body">
+                            {{ $auth->name }}のアカウントを削除します。よろしいですか？
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <a class="btn btn-default" data-dismiss="modal">キャンセル</a>
+                            <button type="submit" class="btn btn-danger">削除</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 </section>

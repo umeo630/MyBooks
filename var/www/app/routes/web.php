@@ -46,6 +46,8 @@ Route::post('/user/{name}/update', 'UserController@userUpdate')->name('user.upda
 Route::get('/user/{name}/email', 'UserController@userEmailEdit')->name('email.edit')->middleware('auth');
 //メールアドレス更新処理
 Route::post('/user/{name}/email/update', 'UserController@userEmailUpdate')->name('email.update');
+//アカウント削除処理
+Route::post('/user/{name}/delete', 'UserController@userDestroy')->name('user.delete')->middleware('auth');
 
 //コメント登録処理
 Route::post('/comment', 'CommentController@commentStore')->name('comment.store');

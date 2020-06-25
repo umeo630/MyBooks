@@ -112,6 +112,14 @@ class UserController extends Controller
         return redirect()->route('user.info', ['name' => $auth->name]);
     }
 
+    //アカウント削除処理
+    function userDestroy(Request $request)
+    {
+        User::find($request->user_id)->delete();
+
+        return redirect()->route('article.list');
+    }
+
     //ログイン
     function userLogin()
     {

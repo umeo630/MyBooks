@@ -25,7 +25,7 @@
 <body>
     <!--ヘッダー-->
     <header class="header header-register black-bg">
-        <a href="index.html" class="logo"><b>BOOK<span>HISTORY</span></b></a>
+        <a href="index.html" class="logo"><b>MY<span>BOOKS</span></b></a>
     </header>
     <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
@@ -35,7 +35,7 @@
             <form class="form-login" method="POST" action="{{ route('login') }}">
                 @csrf
 
-                <h2 class="form-login-heading">BOOKHISTORYにログイン</h2>
+                <h2 class="form-login-heading">MYBOOKSにログイン</h2>
                 <div class="login-wrap">
                     <div class="form-group">
                         <label for="email" class="form-label ">{{ __('メールアドレス') }}</label>
@@ -86,12 +86,12 @@
                         </a>
                     </div>
 
-                    <div class="login-social-link centered">
+                    <!-- <div class="login-social-link centered">
                         <p>SNS経由でログインする場合はこちら</p>
                         <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
                         <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
-                    </div>
-                    <div class="registration">
+                    </div> -->
+                    <div class="registration mt">
                         アカウントの新規作成はこちら<br />
                         <a class="" href="{{ route('register')}}">
                             新規作成

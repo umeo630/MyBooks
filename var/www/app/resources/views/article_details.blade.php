@@ -63,10 +63,13 @@
                         {{$comment->comment}}
                     </div>
                     <div class="third-part">
+                        @auth
                         @if ($comment->user->id == Auth::user()->id)
                         <div class="text-right">
                             <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#comment-delete-{{$comment->id}}">削除</a>
                         </div>
+                        @endif
+                        @endauth
                     </div>
                     <div class="modal fade" id="comment-delete-{{$comment->id}}" tabindex="-1" role="dialog" aria-labelledby="comment-delete-{{$comment->id}}Label" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -92,9 +95,9 @@
                             </div>
                         </div>
                     </div>
-                    @endif
                 </div>
                 @endforeach
+                @auth
                 <form action="{{ route('comment.store')}}" method="POST">
                     @csrf
                     <div class="chat-txt text-right">
@@ -104,6 +107,7 @@
                     </div>
                     <button class="btn btn-theme" type="summit">コメントする</button>
                 </form>
+                @endauth
             </aside>
         </div>
     </section>

@@ -29,7 +29,7 @@ class CreateArticlesTable extends Migration
             $table->date('create_at');
             $table->date('update_at')->nullable();
             $table->date('delete_at')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

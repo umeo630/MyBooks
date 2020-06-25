@@ -20,8 +20,8 @@ class CreateArticleCommentsTable extends Migration
             $table->text('comment');
             $table->Integer('reply_flg');
             $table->unsignedBigInteger('reply_to')->nullable();
-            $table->foreign('article_id')->references('id')->on('articles');
-            $table->foreign('commenter_id')->references('id')->on('users');
+            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
+            $table->foreign('commenter_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

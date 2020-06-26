@@ -11,7 +11,7 @@
         <div class="chat-room mt">
             <aside class="right-side">
                 <div class="room-desk2">
-                    <img src="/img/framework/login-bg.jpg" alt="" width="100%" height="auto">
+                    <img src='/img/framework/login-bg.jpg' width="100%" height="auto">
                     <div class="invite-row2">
                         <article-favorite :initial-is-favorited-by='@json($article->isFavoritedBy(Auth::user()))' :initial-count-favorites='@json($article->count_favorites)' :authorized='@json(Auth::check())' endpoint="{{ route('article.favorite', ['id' => $article->id]) }}"></article-favorite>
                     </div>
@@ -24,8 +24,8 @@
                 </div>
                 <div class="room-desk">
                     <h3>読んだ本：{{$article->book_title}}</h3>
-                    <h4>作成日：{{$article->create_at}} <span>／</span>価格：{{$article->book_price}}</h4>
-                    <h3>★★★★★ {{$article->book_evaluation}}</h3>
+                    <h4>作成日：{{$article->create_at}} <span>／</span>価格：{{$article->book_price}}円</h4>
+                    <h3>評価: {{$article->book_evaluation}}</h3>
                     <div class="mt">
                         <h4>感想</h4>
                         <br>

@@ -70,13 +70,13 @@
                                     <i class="fa fa-ellipsis-v"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                                    <a href="#!" class="dropdown-item" data-toggle="modal" data-target="#modal-edit-{{$article->id}}"> <i class="fa fa-edit"></i> 記事を更新する</a>
+                                    <a href="#!" class="dropdown-item text-primary" data-toggle="modal" data-target="#modal-edit-{{$article->id}}"> <i class="fa fa-edit"></i> 記事を更新する</a>
                                     <div class="dropdown-divider"></div>
-                                    <a href="#!" class="dropdown-item" data-toggle="modal" data-target="#modal-delete-{{$article->id}}"> <i class="fa fa-trash-o"></i> 記事を削除する</a>
+                                    <a href="#!" class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{$article->id}}"> <i class="fa fa-trash-o"></i> 記事を削除する</a>
                                 </div>
                             </div>
                             <h5 class="mb-1">{{ $article->article_title}}</h5>
-                            <p class="mb-1"><small>{{ $article->create_at}}</small></p><img src="{{asset($article->url)}}" width="100" height="150">
+                            <p class="mb-1"><small>{{ $article->create_at}}</small></p><img src="/img/framework/login-bg.jpg" width="100" height="150">
                             <p class=" mb-1">{{ $article->book_title}}</p>
                             <small>{{ $article->book_content}}</small>
                         </div>

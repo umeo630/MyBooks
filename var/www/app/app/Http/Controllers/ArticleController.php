@@ -19,7 +19,7 @@ class ArticleController extends Controller
         // 記事情報を全て取得
         // TODO:削除フラグの立っているものは取得してこない。
         // TODO:非表示フラグの立っているものは取得してこない。→途中で保存などの記事は自分だけ表示？
-        $articles = Article::all()->sortByDesc('created_at');
+        $articles = Article::all()->sortByDesc('created_at')->load('user');
 
         return view('article_list', ['articles' => $articles]);
     }
@@ -30,13 +30,11 @@ class ArticleController extends Controller
         //取得したidでフィルタ
         $article = Article::find($request->id);
 
-        //$articleのユーザーの記事を全て取得
-        $user = User::where('id', $article->user_id)->first();
-
-        $user_articles = $user->articles;
+        //$articleのユーザーの記事を取得
+        $user_articles = $article->user->articles;
 
         //記事に対するコメントを全て取得
-        $comments = Comment::where('article_id', $article->id)->get()->sortBy('created_at');
+        $comments = Comment::where('article_id', $article->id)->get()->sortBy('created_at')->load('user');
 
         //article_details表示、＄articleを渡す
         return view('article_details', [

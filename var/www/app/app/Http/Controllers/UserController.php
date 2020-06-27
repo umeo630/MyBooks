@@ -12,13 +12,13 @@ class UserController extends Controller
     function userPage(string $name)
     {
         //ユーザーの名前を取得
-        $user = User::where('name', $name)->first();
+        $user = User::where('name', $name)->first()->load('followings.followers');
 
         //ユーザーの記事一覧を取得し、作成日順に並べる
         $articles = $user->articles->sortByDesc('create_at');
 
         //ユーザーがお気に入りした記事を取得し、お気に入りした順に並べる
-        $articles_favorites = $user->favorites->sortByDesc('creted_at');
+        $articles_favorites = $user->favorites->sortByDesc('creted_at')->load('user');
 
         //フォロワーを取得し、フォローされた順に並べる
         $followers = $user->followers->sortByDesc('created_at');

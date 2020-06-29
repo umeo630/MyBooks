@@ -83,6 +83,7 @@
                     </div>
                 </div>
                 @endforeach
+                <div class="text-center">{{$articles->links()}}</div>
 
 
                 <!--modalArticleEdit-->

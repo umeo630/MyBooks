@@ -97,6 +97,7 @@
                     </div>
                 </div>
                 @endforeach
+                <div class="text-center">{{$comments->links()}}</div>
                 @auth
                 <form action="{{ route('comment.store')}}" method="POST">
                     @csrf

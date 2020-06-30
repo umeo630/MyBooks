@@ -59,7 +59,7 @@
                                 <div class="row">
                                     <div class="list-group mt">
                                         @foreach ($articles as $article)
-                                        <div class="list-group-main col-lg-4 col-md-4 col-sm-4">
+                                        <div class="list-group-main col-lg-4 col-md-4 col-sm-4 mt">
                                             <a href="{{ route('article.details',[$article->id])}}" class="list-group-item flex-column align-items-start text-center">
                                                 <div class="d-flex justify-content-between">
                                                     <h3 class="mb-1">{{ $article->article_title}}</h3>
@@ -82,7 +82,7 @@
                                 <div class="row">
                                     <div class="list-group mt">
                                         @foreach ($articles_favorites as $article_favorite)
-                                        <div class="list-group-main col-lg-4 col-md-4 col-sm-4">
+                                        <div class="list-group-main col-lg-4 col-md-4 col-sm-4 mt">
                                             <a href="{{ route('user.show',[$article_favorite->user->name])}}"><i class="fa fa-user-circle fa-3x mr-1"></i></a>
                                             <div class="font-weight-bold">
                                                 <a href="{{ route('user.show',[$article_favorite->user->name])}}">{{$article_favorite->user->name}}</a>
@@ -108,7 +108,7 @@
                             <div id="follower" class="tab-pane">
                                 <div class="row">
                                     @foreach ($followers as $follower)
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt">
                                         <div class="showback">
                                             @if (Auth::id() !== $follower->id)
                                             <follow-button class="pull-right" :initial-is-followed-by='@json($follower->isFollowedBy(Auth::user()))' :authorized='@json(Auth::check())' endpoint="{{ route('user.follow', ['name' => $follower->name])}}"></follow-button>
@@ -123,7 +123,7 @@
                             <div id="followings" class="tab-pane">
                                 <div class="row">
                                     @foreach ($followings as $following)
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt">
                                         <div class="showback">
                                             @if (Auth::id() !== $following->id)
                                             <follow-button class="pull-right" :initial-is-followed-by='@json($following->isFollowedBy(Auth::user()))' :authorized='@json(Auth::check())' endpoint="{{ route('user.follow', ['name' => $following->name])}}"></follow-button>

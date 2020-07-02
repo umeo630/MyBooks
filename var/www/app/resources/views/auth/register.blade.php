@@ -25,7 +25,7 @@
 <body>
     <!--ヘッダー-->
     <header class="header black-bg">
-        <a href="index.html" class="logo"><b>MY<span>BOOKS</span></b></a>
+        <a href="{{route('article.list')}}" class="logo"><b>MY<span>BOOKS</span></b></a>
     </header>
 
     <!-- **********************************************************************************************************************************************************

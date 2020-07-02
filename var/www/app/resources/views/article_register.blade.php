@@ -39,7 +39,14 @@
                     </div>
                     <div class="form-group">
                         <label class="mt-3">評価：</label>
-                        <input type="number" class="form-control" name="book_evaluation" placeholder="1:全くおすすめしない、2:おすすめしない、3:、普通4:、おすすめ5:かなりおすすめ">
+                        <select class="form-control" name="book_evaluation">
+                            <option selected>こちらから選択してください</option>
+                            <option value="1">1:全くおすすめしない</option>
+                            <option value="2">2:おすすめしない</option>
+                            <option value="3">3:普通</option>
+                            <option value="4">4:おすすめ</option>
+                            <option value="5">5:かなりおすすめ</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="mt-3">価格：</label>
@@ -115,11 +122,18 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="mt-3">評価：</label>
-                                            <input type="number" class="form-control" name="book_evaluation" placeholder="1:全くおすすめしない、2:おすすめしない、3:普通、4:おすすめ、5:かなりおすすめ" 　value="{{ $article->book_evaluation ?? old('book_evaluation')}}">
+                                            <select class="form-control" name="book_evaluation">
+                                                <option selected> {{ $article->book_evaluation ?? old('book_evaluation')}}</option>
+                                                <option value="1">1:全くおすすめしない</option>
+                                                <option value="2">2:おすすめしない</option>
+                                                <option value="3">3:普通</option>
+                                                <option value="4">4:おすすめ</option>
+                                                <option value="5">5:かなりおすすめ</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label class="mt-3">価格：</label>
-                                            <input type="number" class="form-control" name="price" placeholder="価格を記入してください。" 　value="{{ $article->book_price ?? old('book_price')}}">
+                                            <input type="number" class="form-control" name="book_price" placeholder="価格を記入してください。" value="{{ $article->book_price ?? old('book_price')}}">
                                         </div>
                                         <div class="form-group">
                                             <label class="mt-3">サムネイル：</label>
@@ -129,11 +143,11 @@
                                             <label class="mt-3">感想：</label>
                                             <textarea class="form-control" name="book_content" placeholder="感想を記入してください。" rows="5">{{ $article->book_content ?? old('book_content')}}</textarea>
                                         </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">保存</button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">保存</button>
-                                </div>
-                                </form>
                             </div>
                         </div>
                     </div>

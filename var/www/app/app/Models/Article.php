@@ -18,6 +18,8 @@ class Article extends Model
         'book_title',
         'book_content',
         'read_at',
+        'book_price',
+        'book_evaluation',
     ];
 
 

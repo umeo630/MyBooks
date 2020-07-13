@@ -64,7 +64,7 @@
                                                 <div class="d-flex justify-content-between">
                                                     <h3 class="mb-1">{{ $article->article_title}}</h3>
                                                     <p class="text-muted">{{ $article->create_at}}</p>
-                                                    <img src="{{asset('app/public/public/19.jpg')}}" width="150" height="225">
+                                                    <img src="/img/framework/login-bg.jpg" width="150" height="225">
                                                     <h4 class="mb-1">{{ $article->book_title}}</h4>
                                                     <div class="text">
                                                         {!! nl2br(e( $article->book_content )) !!}
@@ -91,7 +91,7 @@
                                                 <div class="d-flex justify-content-between">
                                                     <h3 class="mb-1">{{ $article_favorite->article_title}}</h3>
                                                     <p class="text-muted">{{ $article_favorite->create_at}}</p>
-                                                    <img src="{{asset('app/public/public/19.jpg')}}" width="150" height="225">
+                                                    <img src="/img/framework/login-bg.jpg" width="150" height="225">
                                                     <h4 class="mb-1">{{ $article_favorite->book_title}}</h4>
                                                     <div class="text">
                                                         {!! nl2br(e( $article_favorite->book_content )) !!}

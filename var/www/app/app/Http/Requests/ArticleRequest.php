@@ -25,11 +25,11 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'article_title' => 'nullable|max:50',
-            'book_title' => 'nullable|max:50',
-            'book_content' => 'nullable|max:500',
-            'book_evaluation' => 'nullable|between:1,5',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'article_title' => 'required|max:50',
+            'book_title' => 'required|max:50',
+            'book_content' => 'required|max:500',
+            'book_evaluation' => 'required|between:1,5',
+            'photo' => 'nullable|file|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 
@@ -40,7 +40,7 @@ class ArticleRequest extends FormRequest
             'book_title' => '本のタイトル',
             'book_content' => '本文',
             'book_evaluation' => '評価',
-            'image' => '画像',
+            'photo' => '画像',
         ];
     }
 }

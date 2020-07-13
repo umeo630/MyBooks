@@ -58,21 +58,7 @@
                             <div id="articles" class="tab-pane active">
                                 <div class="row">
                                     <div class="list-group mt">
-                                        @foreach ($articles as $article)
-                                        <div class="list-group-main col-lg-4 col-md-4 col-sm-4 mt">
-                                            <a href="{{ route('article.details',[$article->id])}}" class="list-group-item flex-column align-items-start text-center">
-                                                <div class="d-flex justify-content-between">
-                                                    <h3 class="mb-1">{{ $article->article_title}}</h3>
-                                                    <p class="text-muted">{{ $article->create_at}}</p>
-                                                    <img src="/img/framework/login-bg.jpg" width="150" height="225">
-                                                    <h4 class="mb-1">{{ $article->book_title}}</h4>
-                                                    <div class="text">
-                                                        {!! nl2br(e( $article->book_content )) !!}
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        @endforeach
+                                        @include('layouts.article')
                                     </div>
                                 </div>
                                 <!-- /OVERVIEW -->
@@ -91,7 +77,7 @@
                                                 <div class="d-flex justify-content-between">
                                                     <h3 class="mb-1">{{ $article_favorite->article_title}}</h3>
                                                     <p class="text-muted">{{ $article_favorite->create_at}}</p>
-                                                    <img src="{{ $article->url}}" width="150" height="225">
+                                                    <img src="{{ $article_favorite->url}}" width="150" height="225">
                                                     <h4 class="mb-1">{{ $article_favorite->book_title}}</h4>
                                                     <div class="text">
                                                         {!! nl2br(e( $article_favorite->book_content )) !!}

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DB;
+use Storage;
 use App\User;
 use App\Models\Comment;
 use Illuminate\Database\Eloquent\Model;
@@ -41,14 +42,16 @@ class Article extends Model
         // 画像アッピロードに成功しているか確認
         if ($request->file('photo')->isValid()) {
 
+            //s3アップロード開始
+            $photo = $request->file('photo');
 
-            //ファイルを'記事id.jpg'としてpublicディレクトリに保存
-            $article_count = (string) Article::count() + 1;
+            //バケットの’article_image’フォルダへアップロード
+            $path = Storage::disk('s3')->putfile('article_image', $photo, 'public');
 
-            $photo = $request->file('photo')->storeAs('public/article_image', $article_count . '.' . 'jpg');
-            //ファイルのURLを生成
-            $url = asset($photo);
+            //画像のフルパスを取得
+            $url = Storage::disk('s3')->url($path);
         }
+
 
         // sql用のvalue
         $values = array($user_id, $article_title, $book_title, $book_content, $read_at, $book_price, $book_evaluation, $url, 0, 0);

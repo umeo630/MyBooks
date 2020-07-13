@@ -11,7 +11,7 @@
         <div class="chat-room mt">
             <aside class="right-side">
                 <div class="room-desk2">
-                    <img src='/img/framework/login-bg.jpg' width="100%" height="auto">
+                    <img src='{{ $article->url}}' width="100%" height="auto">
                     <div class="invite-row2">
                         <article-favorite :initial-is-favorited-by='@json($article->isFavoritedBy(Auth::user()))' :initial-count-favorites='@json($article->count_favorites)' :authorized='@json(Auth::check())' endpoint="{{ route('article.favorite', ['id' => $article->id]) }}"></article-favorite>
                     </div>

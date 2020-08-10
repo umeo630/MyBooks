@@ -10,6 +10,7 @@
             <p class="text-muted">{{ $article->create_at}}</p>
             <img src="{{ $article->url}}" width="150" height="225">
             <h4 class="mb-1">{{ $article->book_title}}</h4>
+            <img src="{{ $article->url ?? 'http://design-ec.com/d/e_others_50/l_e_others_501.png'}}" width="150" height="225">
             <div class="text">
                 {!! nl2br(e( $article->book_content )) !!}
             </div>

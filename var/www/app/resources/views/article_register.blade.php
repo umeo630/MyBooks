@@ -20,15 +20,21 @@
             <div class="article-head">
                 <h3><i class="fa fa-angle-right"></i> マイ記事管理</h3>
             </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 mt">
+                <h4 class="title">簡単検索</h4>
+                <form enctype="multipart/form-data" action="{{ route('register.index')}}" method="get">
+                    @csrf
+                    <div class="form-group">
+                        <input type="text" name="show" class="form-control" placeholder="書籍名を入力してください。">
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-theme">検索</button>
+                </form>
+            </div>
             <div class="col-lg-12 col-md-12 col-sm-12 mt">
                 <h4 class="title">マイ記事登録</h4>
                 <form enctype="multipart/form-data" class="article-reegister-form" action="{{ route('article.store')}}" method="POST">
                     @csrf
-
-                    <div class="form-group">
-                        <label class="mt-3">記事タイトル：</label>
-                        <input type="text" name="article_title" class="form-control" placeholder="記事タイトルを記入してください。">
-                    </div>
                     <div class="form-group">
                         <label class="mt-3">読んだ本：</label>
                         <input type="text" name="book_title" class="form-control" placeholder="読んだ本を記入してください。">

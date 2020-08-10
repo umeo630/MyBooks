@@ -20,7 +20,7 @@ Route::get('/article/register', 'ArticleController@articleRegister')->name('arti
 //記事詳細画面
 Route::get('/article/{id}', 'ArticleController@articleDetails')->name('article.details');
 //記事登録処理
-Route::post('/article', 'ArticleController@articleStore')->name('article.store');
+Route::post('/article', 'ArticleController@articleStore')->name('article.store')->middleware('auth');
 //記事更新処理
 Route::post('/article/update/{id}', 'ArticleController@articleUpdate')->name('article.update');
 //記事削除処理
@@ -53,6 +53,10 @@ Route::post('/user/{name}/delete', 'UserController@userDestroy')->name('user.del
 Route::post('/comment', 'CommentController@commentStore')->name('comment.store');
 //コメント削除処理
 Route::post('/comment/delete', 'CommentController@commentDestroy')->name('comment.delete');
+
+//簡単記事登録検索一覧表示
+Route::get('/api', 'ArticleController@index')->name('register.index')->middleware('auth');
+
 
 
 

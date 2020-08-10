@@ -38,9 +38,10 @@ class Article extends Model
         $read_at = $request->read_at;
         $book_price = $request->book_price;
         $book_evaluation = $request->book_evaluation;
+        $url = $request->url;
 
         // 画像アッピロードに成功しているか確認
-        if ($request->file('photo')->isValid()) {
+        if ($request->file('photo')) {
 
             //s3アップロード開始
             $photo = $request->file('photo');
@@ -50,7 +51,7 @@ class Article extends Model
 
             //画像のフルパスを取得
             $url = Storage::disk('s3')->url($path);
-        }
+        };
 
 
         // sql用のvalue

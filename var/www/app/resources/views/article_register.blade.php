@@ -55,10 +55,6 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="mt-3">価格：</label>
-                        <input type="number" class="form-control" name="book_price" placeholder="価格を記入してください。">
-                    </div>
-                    <div class="form-group">
                         <label class="mt-3">サムネイル：</label>
                         <input type="file" class="form-control" name="photo" placeholder="画像をアップロードしてください。">
                     </div>
@@ -88,15 +84,15 @@
                                     <a href="#!" class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{$article->id}}"> <i class="fa fa-trash-o"></i> 記事を削除する</a>
                                 </div>
                             </div>
-                            <h5 class="mb-1">{{ $article->article_title}}</h5>
-                            <p class="mb-1"><small>{{ $article->create_at}}</small></p><img src="/img/framework/login-bg.jpg" width="100" height="150">
-                            <p class=" mb-1">{{ $article->book_title}}</p>
-                            <small>{{ $article->book_content}}</small>
+                            <h5 class="mb-1">{{ $article->book_title}}</h5>
+                            <p class="mb-1"><small>{{ $article->create_at}}</small></p><img src="{{$article->url}}" width="100" height="150">
+                            <p class=" mb-1">{{ $article->book_content}}</p>
                         </div>
                     </div>
                 </div>
                 @endforeach
-                <div class="text-center">{{$articles->links()}}</div>
+                <div class=" text-center">{{$articles->links()}}
+                </div>
 
 
                 <!--modalArticleEdit-->
@@ -115,10 +111,6 @@
                                     <form class="article-reegister-form" role="form" action="{{ route ('article.update',['id' => $article->id])}}" method="POST">
                                         @csrf
                                         <div class="form-group">
-                                            <label class="mt-3">記事タイトル：</label>
-                                            <input type="text" name="article_title" class="form-control" value="{{ $article->article_title ?? old('article_title')}}">
-                                        </div>
-                                        <div class="form-group">
                                             <label class="mt-3">読んだ本：</label>
                                             <input type="text" name="book_title" class="form-control" placeholder="読んだ本を記入してください。" value="{{ $article->book_title ?? old('book_title')}}">
                                         </div>
@@ -136,10 +128,6 @@
                                                 <option value="4">4:おすすめ</option>
                                                 <option value="5">5:かなりおすすめ</option>
                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="mt-3">価格：</label>
-                                            <input type="number" class="form-control" name="book_price" placeholder="価格を記入してください。" value="{{ $article->book_price ?? old('book_price')}}">
                                         </div>
                                         <div class="form-group">
                                             <label class="mt-3">サムネイル：</label>

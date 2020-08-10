@@ -6,10 +6,9 @@
     </div>
     <a href="{{ route('article.details',[$article->id])}}" class="list-group-item flex-column align-items-start text-center">
         <div class="d-flex justify-content-between">
-            <h3 class="mb-1">{{ $article->article_title}}</h3>
-            <p class="text-muted">{{ $article->create_at}}</p>
-            <img src="{{ $article->url}}" width="150" height="225">
             <h4 class="mb-1">{{ $article->book_title}}</h4>
+            <p class="text-muted">{{ $article->create_at}}</p>
+            <img src="{{ $article->url ?? 'http://design-ec.com/d/e_others_50/l_e_others_501.png'}}" width="150" height="225">
             <div class="text">
                 {!! nl2br(e( $article->book_content )) !!}
             </div>

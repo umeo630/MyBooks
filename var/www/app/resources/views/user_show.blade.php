@@ -61,7 +61,6 @@
                                         @include('layouts.article')
                                     </div>
                                 </div>
-                                <!-- /OVERVIEW -->
                             </div>
                             <!-- /tab-pane -->
                             <div id="articles_favorites" class="tab-pane">
@@ -75,10 +74,9 @@
                                             </div>
                                             <a href="{{ route('article.details',[$article_favorite->id])}}" class="list-group-item flex-column align-items-start text-center">
                                                 <div class="d-flex justify-content-between">
-                                                    <h3 class="mb-1">{{ $article_favorite->article_title}}</h3>
+                                                    <h3 class="mb-1">{{ $article_favorite->book_title}}</h3>
                                                     <p class="text-muted">{{ $article_favorite->create_at}}</p>
                                                     <img src="{{ $article_favorite->url}}" width="150" height="225">
-                                                    <h4 class="mb-1">{{ $article_favorite->book_title}}</h4>
                                                     <div class="text">
                                                         {!! nl2br(e( $article_favorite->book_content )) !!}
                                                     </div>

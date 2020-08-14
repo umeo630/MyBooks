@@ -19,7 +19,7 @@ class ArticleController extends Controller
         // 記事情報を全て取得
         // TODO:削除フラグの立っているものは取得してこない。
         // TODO:非表示フラグの立っているものは取得してこない。→途中で保存などの記事は自分だけ表示？
-        $articles = Article::paginate(6);
+        $articles = Article::latest('create_at')->paginate(6);
         $articles->load('user');
 
         return view('article_list', ['articles' => $articles]);
@@ -32,10 +32,13 @@ class ArticleController extends Controller
         $article = Article::find($request->id);
 
         //$articleのユーザーの記事を取得
-        $user_articles = $article->user->articles;
+        //$user_articles = $article->user->articles;
+        $user_articles = Article::where('user_id', $article->user->id)
+            ->latest('create_at')
+            ->paginate(4);
 
         //記事に対するコメントを全て取得
-        $comments = Comment::where('article_id', $article->id)->paginate(5);
+        $comments = Comment::where('article_id', $article->id)->paginate(6);
         $comments->sortBy('created_at')->load('user');
 
         //article_details表示、＄articleを渡す
@@ -52,7 +55,9 @@ class ArticleController extends Controller
         //ログインしているユーザーのidを取得
         $user_id = Auth::id();
         //ログインしているユーザーの記事を表示(articlesテーブルのuser_idと一致した記事を表示)
-        $articles = DB::table('articles')->where('user_id', $user_id)->paginate(6);
+        $articles = Article::where('user_id', $user_id)
+            ->latest('create_at')
+            ->paginate(6);
 
         return view('article_register', ['articles' => $articles, 'user_id' => $user_id]);
     }

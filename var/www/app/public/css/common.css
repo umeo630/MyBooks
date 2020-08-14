@@ -223,3 +223,11 @@
     background-color: transparent;
     border: 0;
 }
+
+.custom-box2 {
+    background: #FFFFFF;
+    border: 1px solid #DCDBD7;
+    margin: 10px 0 30px 0;
+    padding: 30px 20px 35px;
+    text-align: center;
+}

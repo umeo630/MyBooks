@@ -10,8 +10,10 @@
         <div class="container">
             <div class="list-group mt">
                 @include('layouts.article')
-                <div class="text-center">{{ $articles->links()}}</div>
             </div>
+        </div>
+        <div class="pagiwrapper">
+            <div class="pagination">{{ $articles->links()}}</div>
         </div>
     </section>
 </section>

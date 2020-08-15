@@ -61,26 +61,28 @@
                                         @include('layouts.article')
                                     </div>
                                 </div>
+                                <!-- /OVERVIEW -->
                             </div>
                             <!-- /tab-pane -->
                             <div id="articles_favorites" class="tab-pane">
                                 <div class="row">
                                     <div class="list-group mt">
                                         @foreach ($articles_favorites as $article_favorite)
-                                        <div class="list-group-main col-lg-4 col-md-4 col-sm-4 mt">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
                                             <a href="{{ route('user.show',[$article_favorite->user->name])}}"><i class="fa fa-user-circle fa-3x mr-1"></i></a>
                                             <div class="font-weight-bold">
-                                                <a href="{{ route('user.show',[$article_favorite->user->name])}}">{{$article_favorite->user->name}}</a>
+                                                <a href="{{ route('user.show',[$article_favorite->user->name])}}" class="user-name">{{$article_favorite->user->name}}</a>
                                             </div>
-                                            <a href="{{ route('article.details',[$article_favorite->id])}}" class="list-group-item flex-column align-items-start text-center">
-                                                <div class="d-flex justify-content-between">
-                                                    <h3 class="mb-1">{{ $article_favorite->book_title}}</h3>
-                                                    <p class="text-muted">{{ $article_favorite->create_at}}</p>
-                                                    <img src="{{ $article_favorite->url}}" width="150" height="225">
-                                                    <div class="text">
-                                                        {!! nl2br(e( $article_favorite->book_content )) !!}
-                                                    </div>
+                                            <a href="{{ route('article.details',[$article_favorite->id])}}" class='list-group-item text-center'>
+                                                <div class="servicetitle">
+                                                    <h5>{!! nl2br(e(Str::limit($article_favorite->book_title, 25, ' ...'))) !!}</h5>
+                                                    <hr>
                                                 </div>
+                                                <p class="text-muted">{{ $article_favorite->create_at}}</p>
+                                                <img src="{{ $article_favorite->url ?? 'http://design-ec.com/d/e_others_50/l_e_others_501.png'}}" width="100" height="150">
+                                                <p class="text mt">
+                                                    {!! nl2br(e(Str::limit($article_favorite->book_content, 50, ' ...'))) !!}
+                                                </p>
                                             </a>
                                         </div>
                                         @endforeach

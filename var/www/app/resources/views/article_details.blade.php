@@ -28,7 +28,7 @@
                     <div class="mt">
                         <h4>感想</h4>
                         <br>
-                        <p>{{$article->book_content}}</p>
+                        <p>{!! nl2br(e( $article->book_content )) !!}</p>
                     </div>
                 </div>
             </aside>
@@ -43,13 +43,14 @@
                     @if($user_article->id !== $article->id)
                     <li>
                         <a href="{{ route('article.details',[$user_article->id])}}">
-                            <img width="50" height="75" src="img/framework/register-bg.jpg" width="32">
+                            <img width="50" height="75" src="{{$user_article->url}}">
                             {{$user_article->book_title}}
                         </a>
                     </li>
                     @endif
                     @endforeach
                 </ul>
+                <div class="text-center">{{ $user_articles->links()}}</div>
             </aside>
             <aside class="mid-side">
                 <div class="chat-room-head2 text-center">

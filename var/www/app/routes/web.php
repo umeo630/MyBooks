@@ -57,8 +57,8 @@ Route::post('/comment/delete', 'CommentController@commentDestroy')->name('commen
 //簡単記事登録検索一覧表示
 Route::get('/api', 'ArticleController@index')->name('register.index')->middleware('auth');
 
-
-
+//テストユーザーログイン
+Route::get('/guest', 'Auth\LoginController@guestLogin')->name('login.guest');
 
 
 Auth::routes();

@@ -24,7 +24,21 @@
                 </div>
                 <div class="room-desk">
                     <h4>作成日：{{$article->create_at}} </h4>
-                    <h3>評価: {{$article->book_evaluation}}</h3>
+                    @if ($article->book_evaluation == 1)
+                    <h3>評価: ★ (全くおすすめしない)</h3>
+                    @endif
+                    @if ($article->book_evaluation == 2)
+                    <h3>評価: ★★ (おすすめしない)</h3>
+                    @endif
+                    @if ($article->book_evaluation == 3)
+                    <h3>評価: ★★★ (普通)</h3>
+                    @endif
+                    @if ($article->book_evaluation == 4)
+                    <h3>評価: ★★★★ (おすすめ)</h3>
+                    @endif
+                    @if ($article->book_evaluation == 5)
+                    <h3>評価: ★★★★★ (すごくおすすめ)</h3>
+                    @endif
                     <div class="mt">
                         <h4>感想</h4>
                         <br>

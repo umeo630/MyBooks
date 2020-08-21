@@ -44,8 +44,8 @@ class LoginController extends Controller
     public function guestLogin(Request $request)
     {
         //テストユーザーでログイン
-        if ($request->user_id == 3) {
-            Auth::guard()->loginUsingId(3);
+        if ($request->user_id == 1) {
+            Auth::guard()->loginUsingId(1);
             return redirect()->route('article.list');
         }
     }

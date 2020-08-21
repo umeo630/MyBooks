@@ -104,7 +104,7 @@
                     @csrf
                     <div class="registration mt">
                         テストユーザーでログイン
-                        <input type="hidden" name="user_id" value="3">
+                        <input type="hidden" name="user_id" value="1">
                         <button type="submit" class="btn btn-primary btn-block">
                             {{ __('かんたんログイン') }}
                         </button>

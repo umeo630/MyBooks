@@ -158,7 +158,7 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{$article->id}}">
                                 <div class="modal-body">
-                                    {{ $article->article_title }}を削除します。よろしいですか？
+                                    {{ $article->book_title }}を削除します。よろしいですか？
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <a class="btn btn-default" data-dismiss="modal">キャンセル</a>

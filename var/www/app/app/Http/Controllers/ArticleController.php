@@ -118,7 +118,8 @@ class ArticleController extends Controller
     function articleDestroy(Request $request)
     {
         //削除する記事のインスタンスを呼び出し、削除
-        Article::find($request->id)->delete();
+        $article = Article::find($request->id);
+        $article->delete();
 
         return redirect()->route('article.register');
     }

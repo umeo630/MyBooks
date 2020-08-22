@@ -29,7 +29,13 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
+
+    protected function redirectTo()
+    {
+        session()->flash('flash_message', 'ログインしました');
+        return RouteServiceProvider::HOME;
+    }
 
     /**
      * Create a new controller instance.
@@ -46,7 +52,24 @@ class LoginController extends Controller
         //テストユーザーでログイン
         if ($request->user_id == 1) {
             Auth::guard()->loginUsingId(1);
-            return redirect()->route('article.list');
+            return redirect()->route('article.list')->with('flash_message', 'ログインしました');
         }
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        if ($response = $this->loggedOut($request)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new Response('', 204)
+            : redirect('/')->with('flash_message', 'ログアウトしました');
     }
 }

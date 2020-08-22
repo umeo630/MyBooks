@@ -23,7 +23,7 @@
                     <h3><a href="{{ route('user.show',[$article->user->name])}}">{{$article->user->name}}</a></h3>
                 </div>
                 <div class="room-desk">
-                    <h4>作成日：{{$article->create_at}} </h4>
+                    <h4>作成日：{{$article->create_at->format('Y/m/d')}} </h4>
                     @if ($article->book_evaluation == 1)
                     <h3>評価: ★ (全くおすすめしない)</h3>
                     @endif

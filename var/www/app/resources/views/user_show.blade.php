@@ -78,7 +78,7 @@
                                                     <h5>{!! nl2br(e(Str::limit($article_favorite->book_title, 25, ' ...'))) !!}</h5>
                                                     <hr>
                                                 </div>
-                                                <p class="text-muted">{{ $article_favorite->create_at}}</p>
+                                                <p class="text-muted">{{ $article_favorite->create_at->format('Y/m/d')}}</p>
                                                 <img src="{{ $article_favorite->url ?? 'http://design-ec.com/d/e_others_50/l_e_others_501.png'}}" width="100" height="150">
                                                 <p class="text mt">
                                                     {!! nl2br(e(Str::limit($article_favorite->book_content, 50, ' ...'))) !!}

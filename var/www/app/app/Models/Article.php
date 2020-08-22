@@ -23,6 +23,11 @@ class Article extends Model
         'book_evaluation',
     ];
 
+    //formatを使えるようにする
+    protected $dates = [
+        'create_at'
+    ];
+
 
     // 記事登録
     // 登録成功した場合、trueを返す

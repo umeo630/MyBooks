@@ -29,7 +29,14 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
+
+    protected function redirectTo()
+    {
+        session()->flash('flash_message', '会員登録が完了完了しました');
+        return RouteServiceProvider::HOME;
+    }
+
 
     /**
      * Create a new controller instance.

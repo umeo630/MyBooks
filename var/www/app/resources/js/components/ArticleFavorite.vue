@@ -1,13 +1,13 @@
 <template>
   <div class="centered">
     <a class="btn btn-theme02" v-if="isFavoritedBy === false" @click="clickFavorite">
-      <i class="fa fa-star">お気に入り : {{ countFavorites }}</i>
+      <i class="fa fa-star">いいね : {{ countFavorites }}</i>
     </a>
     <a
       class="btn btn-primary"
       v-if="isFavoritedBy === true"
       @click="clickFavorite"
-    >お気に入り済 : {{ countFavorites }}</a>
+    >いいね済 : {{ countFavorites }}</a>
   </div>
 </template>
 

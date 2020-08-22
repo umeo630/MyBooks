@@ -93,7 +93,7 @@
                                     </div>
                                 </div>
                                 <h5 class="mb-1">{{ $article->book_title}}</h5>
-                                <p class="mb-1"><small>{{ $article->create_at}}</small></p><img src="{{$article->url}}" width="100" height="150">
+                                <p class="mb-1"><small>{{ $article->create_at->format('Y/m/d')}}</small></p><img src="{{$article->url}}" width="100" height="150">
                                 <p class=" mb-1">{!! nl2br(e(Str::limit($article->book_content, 30, ' ...'))) !!}</p>
                             </div>
                         </div>

@@ -26,7 +26,7 @@ class CreateArticlesTable extends Migration
             $table->Integer('display_flg');
             $table->Integer('delete_flg');
             $table->text('url')->nullable();
-            $table->date('create_at');
+            $table->dateTime('create_at');
             $table->date('update_at')->nullable();
             $table->date('delete_at')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

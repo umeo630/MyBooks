@@ -17,6 +17,13 @@
                 </ul>
             </div>
             @endif
+
+            @if(session('flash_message'))
+            <div class="alert alert-success">
+                {{ session('flash_message')}}
+            </div>
+            @endif
+
             <div class="article-head">
                 <h3><i class="fa fa-angle-right"></i> マイ記事管理</h3>
             </div>

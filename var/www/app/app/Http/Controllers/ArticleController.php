@@ -72,7 +72,7 @@ class ArticleController extends Controller
 
         if ($result) {
             // 成功時処理
-            return redirect()->route('article.list');
+            return redirect()->route('article.list')->with('flash_message', '記事を投稿しました');
         } else {
             // 失敗時処理
             var_dump('処理失敗');
@@ -111,7 +111,7 @@ class ArticleController extends Controller
 
         $article->fill($form)->save();
 
-        return redirect()->route('article.register');
+        return redirect()->route('article.register')->with('flash_message', '記事を編集しました');
     }
 
     //マイ記事削除処理
@@ -121,7 +121,7 @@ class ArticleController extends Controller
         $article = Article::find($request->id);
         $article->delete();
 
-        return redirect()->route('article.register');
+        return redirect()->route('article.register')->with('flash_message', '記事を削除しました');
     }
 
 

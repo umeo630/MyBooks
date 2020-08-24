@@ -28,7 +28,7 @@ https://www.awsstudyexample.com/
 ・Bootstrap4  
 ・MySQL  
 ・AWS  
- -◦EC2 へデプロイ  
- -◦Route53 で DNS レコードを管理  
- -◦ACM で SSL 証明書を管理、ALB で使用  
+ ◦EC2 へデプロイ  
+ ◦Route53 で DNS レコードを管理  
+ ◦ACM で SSL 証明書を管理、ALB で使用  
 ・Docker

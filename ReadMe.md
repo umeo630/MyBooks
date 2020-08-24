@@ -4,7 +4,7 @@
 
 ## URL
 
-https://www.awsstudyexample.com/  
+https://www.my-books01.com/  
  - ログインページよりテストユーザーとしてかんたんログインが可能です。
 
 ## 機能一覧

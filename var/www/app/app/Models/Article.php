@@ -87,6 +87,7 @@ class Article extends Model
     public function favorites()
     {
         //お気に入りテーブルリレーション
+        //ArticleモデルとUserモデルをlikesテーブルを通じて多対多で結び付ける
         return $this->belongsToMany(User::class, 'favorites')->withTimestamps();
     }
 
@@ -94,8 +95,9 @@ class Article extends Model
     //あるユーザーがいいね済かどうかを判定
     //引数がnullであっても許容
     public function isFavoritedBy(?User $user)
-    {    //記事をいいねしたユーザーの中に引数として渡した＄userがいればtrueを返す
-
+    {
+        //戻り値はtrueかfalseとなる
+        //記事をいいねしたユーザーの中に引数として渡した＄userがいればtrueを返す
         return $user
             ? (bool) $this->favorites->where('id', $user->id)->count()
             : false;

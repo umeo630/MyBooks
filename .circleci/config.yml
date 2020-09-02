@@ -6,14 +6,12 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
-          working_directory: ./var/www/app
+          key: composer-v1-{{ checksum "./var/www/app/composer.lock" }}
       - run:
           command: composer install -n --prefer-dist
           working_directory: ./var/www/app
       - save_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
-          working_directory: ./var/www/app
+          key: composer-v1-{{ checksum "./var/www/app/composer.lock" }}
           paths:
             - vendor
       - run:

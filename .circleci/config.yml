@@ -19,7 +19,7 @@ jobs:
       - run:
           name: npm ci
           command: l
-            if[ ! -d node_modules ]; then
+            if [ ! -d node_modules ]; then
             npm ci
             fi
           working_directory: ./var/www/app

@@ -46,7 +46,7 @@
             </form>
             @else
             <li><a href="{{ route('login') }}" class="logout">ログイン</a></li>
-            <li><a href="{{ route('register') }}" class="logout">ユーザー登録</a></li>
+            <li><a href="{{ route('register') }}" class="logout">会員登録</a></li>
             @endauth
         </ul>
     </div>

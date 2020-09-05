@@ -1,8 +1,13 @@
 <aside>
     <div id="sidebar" class="nav-collapse ">
         <ul class="sidebar-menu" id="nav-accordion">
-            <h5 class="centered">@auth
-                {{Auth::user()->name}}@else ゲスト　@endauth</h5>
+            <h5 class="centered">
+                @auth
+                {{Auth::user()->name}}
+                @else
+                ゲスト
+                @endauth
+            </h5>
             <li class="mt">
                 @auth
                 <a href="{{route('user.show',[Auth::user()->name])}}">
@@ -21,8 +26,22 @@
                     <span>設定</span>
                 </a>
                 <ul class="sub">
-                    <li><a href="{{ route('user.info',[Auth::user()->name])}}">アカウント情報</a></li>
+                    <li>
+                        <i class="fa fa-info"></i>
+                        <a href="{{ route('user.info',[Auth::user()->name])}}">アカウント情報</a>
+                    </li>
                 </ul>
+            </li>
+            @else
+            <li>
+                <a href="{{ route('register')}}">
+                    <i class="fa fa-pencil-square-o"></i>
+                    <span>会員登録</span>
+                </a>
+                <a href="{{ route('login')}}">
+                    <i class="fa fa-sign-in"></i>
+                    <span>ログイン</span>
+                </a>
             </li>
             @endauth
             </li>

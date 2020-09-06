@@ -45,7 +45,7 @@ jobs:
           command: |
             ssh -o StrictHostKeyChecking=no -t ec2-user@${HOST_NAME} "cd laravel-app && \
               git pull origin master && \
-              cd var/www/app && \
+              docker-compose exec app bash && \
               composer install -n --no-dev --prefer-dist && \
               npm ci && \
               npm run prod && \

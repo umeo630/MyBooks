@@ -44,7 +44,7 @@ jobs:
           name: deploy
           command: |
             ssh -o StrictHostKeyChecking=no -t ec2-user@${HOST_NAME} "cd laravel-app && \
-              git pull origin master && \
+              git pull origin master"
 
 workflows:
   version: 2

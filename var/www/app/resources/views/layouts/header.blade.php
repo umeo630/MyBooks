@@ -39,7 +39,6 @@
     <div class="top-menu">
         <ul class="nav pull-right top-menu">
             @auth
-            <li><a href="{{ route('article.register') }}" class="logout">マイ記事管理</a></li>
             <li><a href="#" class="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

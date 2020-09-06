@@ -27,8 +27,10 @@
                 </a>
                 <ul class="sub">
                     <li>
-                        <i class="fa fa-info"></i>
-                        <a href="{{ route('user.info',[Auth::user()->name])}}">アカウント情報</a>
+                        <a href="{{ route('user.info',[Auth::user()->name])}}">
+                            <i class="fa fa-info"></i>
+                            <span>アカウント情報</span>
+                        </a>
                     </li>
                 </ul>
             </li>

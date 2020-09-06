@@ -33,6 +33,7 @@ class RegisterController extends Controller
 
     protected function redirectTo()
     {
+        //会員登録時フラッシュメッセージを追加
         session()->flash('flash_message', '会員登録が完了しました');
         return RouteServiceProvider::HOME;
     }

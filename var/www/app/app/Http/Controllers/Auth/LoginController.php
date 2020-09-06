@@ -33,6 +33,7 @@ class LoginController extends Controller
 
     protected function redirectTo()
     {
+        //ログイン時フラッシュメッセージを追加
         session()->flash('flash_message', 'ログインしました');
         return RouteServiceProvider::HOME;
     }
@@ -68,6 +69,7 @@ class LoginController extends Controller
             return $response;
         }
 
+        //ログアウト時フラッシュメッセージを追加
         return $request->wantsJson()
             ? new Response('', 204)
             : redirect('/')->with('flash_message', 'ログアウトしました');

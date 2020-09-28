@@ -50,6 +50,9 @@
                             <li>
                                 <a data-toggle="tab" href="#followings"><span class="badge bg-theme"><i class="fa fa-group"></i></span> フォロー中のユーザー</a>
                             </li>
+                            <li>
+                                <a data-toggle="tab" href="#tsundoku"><span class="badge bg-theme"><i class="fa fa-book"></i></span> 積読一覧</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /panel-heading -->
@@ -116,6 +119,21 @@
                                             @endif
                                             <a href="{{ route('user.show', ['name' => $following->name])}}"><i class="fa fa-user-circle fa-3x mr-1"></i></a>
                                             <h4><a href="{{ route('user.show', ['name' => $following->name])}}">{{$following->name}}</a></h4>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div id="tsundoku" class="tab-pane">
+                                <div class="row">
+                                    @foreach ($followers as $follower)
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt">
+                                        <div class="showback">
+                                            @if (Auth::id() !== $follower->id)
+                                            <follow-button class="pull-right" :initial-is-followed-by='@json($follower->isFollowedBy(Auth::user()))' :authorized='@json(Auth::check())' endpoint="{{ route('user.follow', ['name' => $follower->name])}}"></follow-button>
+                                            @endif
+                                            <a href="{{ route('user.show', ['name' => $follower->name])}}"><i class="fa fa-user-circle fa-3x mr-1"></i></a>
+                                            <h4><a href="{{ route('user.show', ['name' => $follower->name])}}">{{$follower->name}}</a></h4>
                                         </div>
                                     </div>
                                     @endforeach

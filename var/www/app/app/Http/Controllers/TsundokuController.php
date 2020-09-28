@@ -26,4 +26,21 @@ class TsundokuController extends Controller
 
         return view('tsundoku_register', ["tsundokus" => $tsundokus, "user_id" => $user_id]);
     }
+
+    //積読登録
+    function tsundokuStore(Request $request)
+    {
+        // sql実行
+        // 成功時、resultにtrueが入る
+        $tsundoku = new Tsundoku();
+        $result = $tsundoku->insertTsundoku($request);
+
+        if ($result) {
+            //成功時
+            return redirect()->route('tsundoku.register')->with('flash_message', '積読に登録しました');
+        } else {
+            // 失敗時処理
+            var_dump('処理失敗');
+        }
+    }
 }

@@ -63,5 +63,9 @@ Route::get('/guest', 'Auth\LoginController@guestLogin')->name('login.guest');
 //積読管理ページ
 Route::get('/tsundoku/register', 'TsundokuController@tsundokuRegister')->name('tsundoku.register')->middleware('auth');
 
+//積読登録処理
+Route::post('/tsundoku', 'TsundokuController@tsundokuStore')->name('tsundoku.store')->middleware('auth');
+
+
 
 Auth::routes();

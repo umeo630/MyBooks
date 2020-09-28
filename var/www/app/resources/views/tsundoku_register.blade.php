@@ -33,41 +33,34 @@
                 <form enctype="multipart/form-data" action="{{ route('register.index')}}" method="get">
                     @csrf
                     <div class="form-group">
-                        <input type="text" name="show" class="form-control" placeholder="書籍名を入力してください。">
+                        <input type="text" name="show" class="form-control" placeholder="本のタイトルを入力してください。">
                     </div>
                     <button type="submit" class="btn btn-sm btn-theme">検索</button>
                 </form>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 mt">
                 <h4 class="title">積読登録</h4>
-                <form enctype="multipart/form-data" class="article-reegister-form" action="{{ route('article.store')}}" method="POST">
+                <form enctype="multipart/form-data" class="article-reegister-form" action="{{ route('tsundoku.store')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label class="mt-3">読んだ本：</label>
-                        <input type="text" name="book_title" class="form-control" placeholder="読んだ本を記入してください。">
+                        <label class="mt-3">本のタイトル：</label>
+                        <input type="text" name="title" class="form-control" placeholder="本のタイトルを入力してください。">
                     </div>
                     <div class="form-group">
-                        <label class="mt-3">読み終わった日：</label>
-                        <input type="date" class="form-control" name="read_at">
+                        <label class="mt-3">読了予定日：</label>
+                        <input type="date" class="form-control" name="scheduled_date">
                     </div>
                     <div class="form-group">
-                        <label class="mt-3">評価：</label>
-                        <select class="form-control" name="book_evaluation">
-                            <option selected>こちらから選択してください</option>
-                            <option value="1">1:全くおすすめしない</option>
-                            <option value="2">2:おすすめしない</option>
-                            <option value="3">3:普通</option>
-                            <option value="4">4:おすすめ</option>
-                            <option value="5">5:かなりおすすめ</option>
-                        </select>
+                        <label class="mt-3">金額：</label>
+                        <input type="number" class="form-control" name="price" placeholder="金額を入力してください。">
                     </div>
                     <div class="form-group">
                         <label class="mt-3">サムネイル：</label>
                         <input type="file" class="form-control" name="photo" placeholder="画像をアップロードしてください。">
                     </div>
                     <div class="form-group">
-                        <label class="mt-3">本文：</label>
-                        <textarea class="form-control" name="book_content" placeholder="感想を記入してください。" rows="5"></textarea>
+                        <label class="mt-3">メモ：</label>
+                        <textarea class="form-control" name="content" placeholder="メモを記入してください。" rows="5"></textarea>
                     </div>
                     <div class="form-send">
                         <button type="submit" class="btn btn-large btn-theme">登録</button>
@@ -87,14 +80,14 @@
                                         <i class="fa fa-ellipsis-v"></i>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                                        <a href="#!" class="dropdown-item text-primary" data-toggle="modal" data-target="#modal-edit-{{$tsundoku->id}}"> <i class="fa fa-edit"></i> 記事を更新する</a>
+                                        <a href="#!" class="dropdown-item text-primary" data-toggle="modal" data-target="#modal-edit-{{$tsundoku->id}}"> <i class="fa fa-edit"></i> 更新する</a>
                                         <div class="dropdown-divider"></div>
-                                        <a href="#!" class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{$tsundoku->id}}"> <i class="fa fa-trash-o"></i> 記事を削除する</a>
+                                        <a href="#!" class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{$tsundoku->id}}"> <i class="fa fa-trash-o"></i> 削除する</a>
                                     </div>
                                 </div>
-                                <h5 class="mb-1">{{ $tsundoku->book_title}}</h5>
-                                <p class="mb-1"><small>{{ $tsundoku->create_at->format('Y/m/d')}}</small></p><img src="{{$tsundoku->url}}" width="100" height="150">
-                                <p class=" mb-1">{!! nl2br(e(Str::limit($tsundoku->book_content, 30, ' ...'))) !!}</p>
+                                <h5 class="mb-1">{{ $tsundoku->title}}</h5>
+                                <p class="mb-1"><small>{{ $tsundoku->created_at->format('Y/m/d')}}</small></p><img src="{{$tsundoku->url ?? 'http://design-ec.com/d/e_others_50/l_e_others_501.png'}}" width="100" height="150">
+                                <p class=" mb-1">{!! nl2br(e(Str::limit($tsundoku->content, 30, ' ...'))) !!}</p>
                             </div>
                         </div>
                     </div>
@@ -119,34 +112,27 @@
                                 <form class="article-reegister-form" role="form" action="{{ route ('article.update',['id' => $tsundoku->id])}}" method="POST">
                                     @csrf
                                     <div class="form-group">
-                                        <label class="mt-3">読んだ本：</label>
-                                        <input type="text" name="book_title" class="form-control" placeholder="読んだ本を記入してください。" value="{{ $tsundoku->book_title ?? old('book_title')}}">
+                                        <label class="mt-3">本のタイトル：</label>
+                                        <input type="text" name="title" class="form-control" placeholder="本のタイトルを入力してください。">
                                     </div>
                                     <div class="form-group">
-                                        <label class="mt-3">読み終わった日：</label>
-                                        <input type="date" class="form-control" name="read_at" value="{{ $tsundoku->read_at ?? old('read_at')}}">
+                                        <label class="mt-3">読了予定日：</label>
+                                        <input type="date" class="form-control" name="scheduled_date">
                                     </div>
                                     <div class="form-group">
-                                        <label class="mt-3">評価：</label>
-                                        <select class="form-control" name="book_evaluation">
-                                            <option selected> {{ $tsundoku->book_evaluation ?? old('book_evaluation')}}</option>
-                                            <option value="1">1:全くおすすめしない</option>
-                                            <option value="2">2:おすすめしない</option>
-                                            <option value="3">3:普通</option>
-                                            <option value="4">4:おすすめ</option>
-                                            <option value="5">5:かなりおすすめ</option>
-                                        </select>
+                                        <label class="mt-3">金額：</label>
+                                        <input type="number" class="form-control" name="price" placeholder="金額を入力してください。">
                                     </div>
                                     <div class="form-group">
                                         <label class="mt-3">サムネイル：</label>
-                                        <input type="file" class="form-control" name="photo" placeholder="画像をアップロードしてください。" 　value="{{ asset($tsundoku->url)?? old( asset('url'))}}">
+                                        <input type="file" class="form-control" name="photo" placeholder="画像をアップロードしてください。">
                                     </div>
                                     <div class="form-group">
-                                        <label class="mt-3">感想：</label>
-                                        <textarea class="form-control" name="book_content" placeholder="感想を記入してください。" rows="5">{{ $tsundoku->book_content ?? old('book_content')}}</textarea>
+                                        <label class="mt-3">メモ：</label>
+                                        <textarea class="form-control" name="content" placeholder="メモを記入してください。" rows="5"></textarea>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">保存</button>
+                                    <div class="form-send">
+                                        <button type="submit" class="btn btn-large btn-theme">登録</button>
                                     </div>
                                 </form>
                             </div>
@@ -166,7 +152,7 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{$tsundoku->id}}">
                                 <div class="modal-body">
-                                    {{ $tsundoku->book_title }}を削除します。よろしいですか？
+                                    {{ $tsundoku->title }}を削除します。よろしいですか？
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <a class="btn btn-default" data-dismiss="modal">キャンセル</a>

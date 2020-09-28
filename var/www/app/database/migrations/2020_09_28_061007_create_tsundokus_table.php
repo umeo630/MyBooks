@@ -18,7 +18,7 @@ class CreateTsundokusTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('title')->nullable();
             $table->text('content')->nullable();
-            $table->date('sccheduled_date')->nullable();
+            $table->date('scheduled_date')->nullable();
             $table->Integer('price')->nullable();
             $table->text('url')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

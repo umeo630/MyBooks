@@ -109,27 +109,27 @@
                                 <h4 class="modal-title" id="modalArticleEditLabel">積読編集</h4>
                             </div>
                             <div class="modal-body">
-                                <form class="article-reegister-form" role="form" action="{{ route ('article.update',['id' => $tsundoku->id])}}" method="POST">
+                                <form class="article-reegister-form" role="form" action="{{ route ('tsundoku.update',['id' => $tsundoku->id])}}" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <label class="mt-3">本のタイトル：</label>
-                                        <input type="text" name="title" class="form-control" placeholder="本のタイトルを入力してください。">
+                                        <input type="text" name="title" class="form-control" placeholder="本のタイトルを入力してください。" value="{{ $tsundoku->title ?? old('title')}}">
                                     </div>
                                     <div class="form-group">
                                         <label class="mt-3">読了予定日：</label>
-                                        <input type="date" class="form-control" name="scheduled_date">
+                                        <input type="date" class="form-control" name="scheduled_date" value="{{ $tsundoku->scheduled_date ?? old('schedulee_date')}}">
                                     </div>
                                     <div class="form-group">
                                         <label class="mt-3">金額：</label>
-                                        <input type="number" class="form-control" name="price" placeholder="金額を入力してください。">
+                                        <input type="number" class="form-control" name="price" placeholder="金額を入力してください。" value="{{ $tsundoku->price ?? old('price')}}">
                                     </div>
                                     <div class="form-group">
                                         <label class="mt-3">サムネイル：</label>
-                                        <input type="file" class="form-control" name="photo" placeholder="画像をアップロードしてください。">
+                                        <input type="url" class="form-control" name="url" placeholder="画像をアップロードしてください。" value="{{ asset($tsundoku->url)?? old( asset('url'))}}">
                                     </div>
                                     <div class="form-group">
                                         <label class="mt-3">メモ：</label>
-                                        <textarea class="form-control" name="content" placeholder="メモを記入してください。" rows="5"></textarea>
+                                        <textarea class="form-control" name="content" placeholder="メモを記入してください。" rows="5">{{ $tsundoku->content ?? old('content')}}</textarea>
                                     </div>
                                     <div class="form-send">
                                         <button type="submit" class="btn btn-large btn-theme">登録</button>
@@ -148,7 +148,7 @@
                                 </button>
                                 <h4 class="modal-title" id="modalArticleDeleteLabel">積読削除</h4>
                             </div>
-                            <form method="POST" action="{{ route('article.delete')}}">
+                            <form method="POST" action="{{ route('tsundoku.delete')}}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$tsundoku->id}}">
                                 <div class="modal-body">

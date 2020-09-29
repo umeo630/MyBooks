@@ -19,7 +19,7 @@ class TsundokuController extends Controller
     {
         //ログインしているユーザーのidを取得
         $user_id = Auth::id();
-        //ログインしているユーザーの記事を表示(articlesテーブルのuser_idと一致した記事を表示)
+        //ログインしているユーザーの積読を表示(articlesテーブルのuser_idと一致した積読を表示)
         $tsundokus = Tsundoku::where('user_id', $user_id)
             ->latest('created_at')
             ->paginate(6);
@@ -59,5 +59,33 @@ class TsundokuController extends Controller
         $items = $result["items"];
 
         return view('tsundoku_api_index', ['items' => $items]);
+    }
+
+    //積読編集
+    function tsundokuUpdate(Request $request)
+    {
+        //編集する積読のインスタンスを呼び出す
+        $tsundoku = Tsundoku::find($request->id);
+
+        //入力されたデータを取り出して保存
+        $form = $request->all();
+
+        unset($form['_token']);
+
+        $tsundoku->fill($form)->save();
+
+        return redirect()->route('tsundoku.register')->with('flash_message', '積読を編集しました');
+    }
+
+
+
+    //積読削除
+    function tsundokuDestroy(Request $request)
+    {
+        //削除する積読のインスタンスを呼び出し、削除
+        $tsundoku = Tsundoku::find($request->id);
+        $tsundoku->delete();
+
+        return redirect()->route('tsundoku.register')->with('flash_message', '積読を削除しました');
     }
 }

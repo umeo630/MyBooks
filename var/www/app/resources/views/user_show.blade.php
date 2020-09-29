@@ -126,17 +126,27 @@
                             </div>
                             <div id="tsundoku" class="tab-pane">
                                 <div class="row">
-                                    @foreach ($followers as $follower)
-                                    <div class="col-lg-6 col-md-6 col-sm-6 mt">
-                                        <div class="showback">
-                                            @if (Auth::id() !== $follower->id)
-                                            <follow-button class="pull-right" :initial-is-followed-by='@json($follower->isFollowedBy(Auth::user()))' :authorized='@json(Auth::check())' endpoint="{{ route('user.follow', ['name' => $follower->name])}}"></follow-button>
-                                            @endif
-                                            <a href="{{ route('user.show', ['name' => $follower->name])}}"><i class="fa fa-user-circle fa-3x mr-1"></i></a>
-                                            <h4><a href="{{ route('user.show', ['name' => $follower->name])}}">{{$follower->name}}</a></h4>
+                                    <div class="list-group mt">
+                                        @foreach ($tsundokus as $tsundoku)
+                                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                                            <a href="{{ route('user.show',[$tsundoku->user->name])}}"><i class="fa fa-user-circle fa-3x mr-1"></i></a>
+                                            <div class="font-weight-bold">
+                                                <a href="{{ route('user.show',[$tsundoku->user->name])}}" class="user-name">{{$tsundoku->user->name}}</a>
+                                            </div>
+                                            <a href="#" class='list-group-item text-center'>
+                                                <div class="servicetitle">
+                                                    <h5>{!! nl2br(e(Str::limit($tsundoku->title, 25, ' ...'))) !!}</h5>
+                                                    <hr>
+                                                </div>
+                                                <p class="text-muted">{{ $tsundoku->scheduled_date->format('Y/m/d')}}</p>
+                                                <img src="{{ $tsundoku->url ?? 'http://design-ec.com/d/e_others_50/l_e_others_501.png'}}" width="100" height="150">
+                                                <p class="text mt">
+                                                    {!! nl2br(e(Str::limit($tsundoku->content, 50, ' ...'))) !!}
+                                                </p>
+                                            </a>
                                         </div>
+                                        @endforeach
                                     </div>
-                                    @endforeach
                                 </div>
                             </div>
                         </div> <!-- /tab-pane -->

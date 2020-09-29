@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\PasswordResetNotification;
 use App\Models\Article;
+use App\Models\Tsundoku;
 
 class User extends Authenticatable
 {
@@ -53,6 +54,11 @@ class User extends Authenticatable
     public function articles()
     {  //記事テーブルリレーション
         return $this->hasMany(Article::class);
+    }
+
+    public function tsundokus()
+    {  //積読テーブルリレーション
+        return $this->hasMany(Tsundoku::class);
     }
 
     public function favorites()

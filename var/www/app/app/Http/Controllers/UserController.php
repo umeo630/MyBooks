@@ -26,7 +26,10 @@ class UserController extends Controller
         //フォローしているユーザーを取得し、フォローした順に並べる
         $followings = $user->followings->sortByDesc('created_at');
 
-        return view('user_show', ['user' => $user, 'articles' => $articles, 'articles_favorites' => $articles_favorites, 'followings' => $followings, 'followers' => $followers]);
+        //ユーザーの積読一覧を表示
+        $tsundokus = $user->tsundokus->sortByDesc('created_at');
+
+        return view('user_show', ['user' => $user, 'articles' => $articles, 'articles_favorites' => $articles_favorites, 'followings' => $followings, 'followers' => $followers, 'tsundokus' => $tsundokus]);
     }
 
     function userFollow(Request $request, string $name)

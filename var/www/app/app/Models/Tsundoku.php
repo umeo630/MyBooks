@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 use DB;
 use Storage;
 
@@ -22,9 +23,15 @@ class Tsundoku extends Model
 
     //formatを使えるようにする
     protected $dates = [
-        'created_at'
+        'created_at',
+        'scheduled_date'
     ];
 
+    public function user()
+    {
+        //積読したユーザー情報を取得
+        return $this->belongsTo(User::class);
+    }
 
     // 記事登録
     // 登録成功した場合、trueを返す

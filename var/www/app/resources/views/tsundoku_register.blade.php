@@ -30,7 +30,7 @@
 
             <div class="col-lg-12 col-md-12 col-sm-12 mt">
                 <h4 class="title">簡単検索</h4>
-                <form enctype="multipart/form-data" action="{{ route('register.index')}}" method="get">
+                <form enctype="multipart/form-data" action="{{ route('tsundoku_register.index')}}" method="get">
                     @csrf
                     <div class="form-group">
                         <input type="text" name="show" class="form-control" placeholder="本のタイトルを入力してください。">

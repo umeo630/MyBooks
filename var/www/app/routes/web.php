@@ -66,6 +66,9 @@ Route::get('/tsundoku/register', 'TsundokuController@tsundokuRegister')->name('t
 //積読登録処理
 Route::post('/tsundoku', 'TsundokuController@tsundokuStore')->name('tsundoku.store')->middleware('auth');
 
+//積読簡単登録検索一覧表示
+Route::get('/tsundoku/api', 'TsundokuController@index')->name('tsundoku_register.index')->middleware('auth');
+
 
 
 Auth::routes();

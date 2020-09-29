@@ -43,4 +43,21 @@ class TsundokuController extends Controller
             var_dump('処理失敗');
         }
     }
+
+    //簡単登録検索一覧
+    function index(Request $request)
+    {
+        unset($request['_token']);
+        $value = $request['show'];
+
+        $base_url = 'https://www.googleapis.com/books/v1/volumes?q=';
+
+        $response = file_get_contents($base_url . $value);
+
+        $result = json_decode($response, true);
+
+        $items = $result["items"];
+
+        return view('tsundoku_api_index', ['items' => $items]);
+    }
 }

@@ -29,7 +29,13 @@ class UserController extends Controller
         //ユーザーの積読一覧を表示
         $tsundokus = $user->tsundokus->sortByDesc('created_at');
 
-        return view('user_show', ['user' => $user, 'articles' => $articles, 'articles_favorites' => $articles_favorites, 'followings' => $followings, 'followers' => $followers, 'tsundokus' => $tsundokus]);
+        //積読の合計金額を出す
+        $tsundoku_sum = 0;
+        foreach ($tsundokus as $tsundoku) {
+            $tsundoku_sum += $tsundoku->price;
+        }
+
+        return view('user_show', ['user' => $user, 'articles' => $articles, 'articles_favorites' => $articles_favorites, 'followings' => $followings, 'followers' => $followers, 'tsundokus' => $tsundokus, 'tsundoku_sum' => $tsundoku_sum]);
     }
 
     function userFollow(Request $request, string $name)

@@ -117,7 +117,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="mt-3">読了予定日：</label>
-                                        <input type="date" class="form-control" name="scheduled_date" value="{{ $tsundoku->scheduled_date ?? old('schedulee_date')}}">
+                                        <input type="date" class="form-control" name="scheduled_date" value="{{ $tsundoku->scheduled_date ?? old('scheduled_date')}}">
                                     </div>
                                     <div class="form-group">
                                         <label class="mt-3">金額：</label>

@@ -138,7 +138,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="mt-3">サムネイル：</label>
-                                        <input type="file" class="form-control" name="photo" placeholder="画像をアップロードしてください。" 　value="{{ asset($article->url)?? old( asset('url'))}}">
+                                        <input type="url" class="form-control" name="url" value="{{ asset($article->url)?? old( asset('url'))}}">
                                     </div>
                                     <div class="form-group">
                                         <label class="mt-3">感想：</label>

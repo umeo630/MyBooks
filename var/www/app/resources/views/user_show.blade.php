@@ -137,6 +137,7 @@
                                             <div class="list-group col-lg-4 col-md-4 col-sm-4 text-center">
                                                 <div class="list-group-item flex-column align-items-start">
                                                     <div class="d-flex justify-content-between">
+                                                        @if (Auth::id() == $user->id)
                                                         <div class="dropdown text-right">
                                                             <button type="button" class="btn btn-link" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                 <i class="fa fa-ellipsis-v"></i>
@@ -147,6 +148,7 @@
                                                                 <a href="#!" class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{$tsundoku->id}}"> <i class="fa fa-trash-o"></i> 削除する</a>
                                                             </div>
                                                         </div>
+                                                        @endif
                                                         <h5 class="mb-1">{{ $tsundoku->title}}</h5>
                                                         <p class="mb-1"><small>¥{{ $tsundoku->price}}</small></p><img src="{{$tsundoku->url ?? 'http://design-ec.com/d/e_others_50/l_e_others_501.png'}}" width="100" height="150">
                                                         <p class=" mb-1">{!! nl2br(e(Str::limit($tsundoku->content, 30, ' ...'))) !!}</p>

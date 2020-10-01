@@ -21,6 +21,12 @@
                 </a>
             </li>
             <li class="sub-menu">
+                <a href="{{route('tsundoku.register')}}">
+                    <i class="fa fa-book"></i>
+                    <span>積読管理</span>
+                </a>
+            </li>
+            <li class="sub-menu">
                 <a href="javascript:;">
                     <i class="fa fa-cogs"></i>
                     <span>設定</span>
